@@ -1,0 +1,108 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background 0.3s, box-shadow 0.3s;
+  padding: 0 48px;
+  height: var(--nav-h);
+}
+
+.scrolled {
+  background: rgba(248, 249, 251, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+.inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  cursor: pointer;
+}
+.logo span {
+  color: var(--accent);
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 4px;
+  align-items: center;
+}
+
+.links a {
+  display: block;
+  padding: 6px 12px;
+  border-radius: var(--r-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.2s, background 0.2s;
+}
+.links a:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.activeLink {
+  color: var(--accent) !important;
+  background: var(--accent-glow) !important;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+}
+.burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+@media (max-width: 768px) {
+  .burger { display: flex; }
+
+  .links {
+    position: fixed;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    flex-direction: column;
+    padding: 16px 24px 24px;
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-110%);
+    opacity: 0;
+    transition: transform 0.28s cubic-bezier(.4,0,.2,1), opacity 0.28s;
+    pointer-events: none;
+    gap: 4px;
+  }
+  .links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  .links li { width: 100%; }
+  .links a { padding: 10px 16px; font-size: 0.95rem; }
+
+  .burger span:nth-child(1).barOpen { transform: translateY(7px) rotate(45deg); }
+  .burger span:nth-child(2).barOpen { opacity: 0; }
+  .burger span:nth-child(3).barOpen { transform: translateY(-7px) rotate(-45deg); }
+}

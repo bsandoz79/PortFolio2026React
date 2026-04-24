@@ -1,0 +1,213 @@
+/* ── Modal agrandissement photo ── */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modalImg {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  background: white;
+}
+.modalClose {
+  position: absolute;
+  top: 32px;
+  right: 48px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.2rem;
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.18s;
+}
+.modalClose:hover {
+  color: #ffb4b4;
+}
+.about {
+  background: var(--surface);
+}
+
+.topRow {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+  align-items: start;
+}
+
+/* ── Photo column ── */
+.photoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.photoFrame {
+  width: 200px;
+  height: 240px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 4px solid white;
+  box-shadow: var(--shadow-lg);
+  background: var(--surface-2);
+}
+.photoFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.quickInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.quickInfo span {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* ── Bio column ── */
+.bioCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.profileLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.badge2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid rgba(99,102,241,.2);
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.badgeSchool {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--green);
+  background: rgba(16,185,129,.08);
+  border: 1px solid rgba(16,185,129,.2);
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.bio {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.78;
+  margin-bottom: 20px;
+}
+
+.badgeTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: 6px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.badgeTech {
+  background: var(--accent-glow);
+  color: var(--accent);
+  border-color: rgba(99,102,241,.2);
+}
+
+.cvBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: linear-gradient(135deg, var(--accent-glow), rgba(139,92,246,.06));
+  border: 1px solid rgba(99,102,241,.2);
+  border-radius: var(--r-md);
+  padding: 28px 32px;
+}
+
+.cvInfo h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.cvInfo p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.cvBtns {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.btnView, .btnDl {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: var(--r-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+.btnView:hover, .btnDl:hover { transform: translateY(-1px); }
+
+.btnView {
+  background: white;
+  color: var(--accent);
+  border: 1px solid rgba(99,102,241,.3);
+  box-shadow: var(--shadow-sm);
+}
+
+.btnDl {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 4px 12px rgba(99,102,241,.3);
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+  .cvBlock { flex-direction: column; align-items: flex-start; }
+  .cvBtns { width: 100%; }
+  .btnView, .btnDl { flex: 1; justify-content: center; }
+}

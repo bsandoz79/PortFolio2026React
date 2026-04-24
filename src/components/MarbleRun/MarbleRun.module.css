@@ -1,0 +1,6 @@
+.canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* Canvas is inside the Hero right panel, not fixed */
+}
