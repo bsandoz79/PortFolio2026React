@@ -1,3 +1,67 @@
+/* ── Switch custom pour la checkbox CV ── */
+.cvToggleLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+.cvToggleLabel:hover {
+  color: var(--accent);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  flex-shrink: 0;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: var(--border);
+  border: 1.5px solid var(--border);
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+  border-radius: 100px;
+}
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  transition: transform 0.28s cubic-bezier(.4,0,.2,1), box-shadow 0.28s;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+}
+.switch input:checked + .slider {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-glow);
+}
+.switch input:checked + .slider::before {
+  transform: translateY(-50%) translateX(22px);
+  box-shadow: 0 2px 6px rgba(99,102,241,0.25);
+}
+.switch input:focus-visible + .slider {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 /* ── Modal agrandissement photo ── */
 .modalOverlay {
   position: fixed;
@@ -133,6 +197,33 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+}
+
+/* ── Marquee technologies ── */
+.marqueeWrapper {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 8px;
+  width: max-content;
+  animation: marquee 18s linear infinite;
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marqueeReverse {
+  animation-direction: reverse;
 }
 
 .badge {

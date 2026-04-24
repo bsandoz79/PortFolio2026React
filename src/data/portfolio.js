@@ -2,7 +2,7 @@
 export const profil = {
   name: 'Baptiste Sandoz',
   title: 'Développeur Fullstack Junior',
-  subtitle: 'Alternance 24 mois — dès Septembre 2026',
+  subtitle: 'Alternance de 12 à 24 mois — dès Septembre 2026',
   school: 'Mastère Informatique · école iT Amiens',
   bio: "Étudiant en Développement Fullstack Junior, actuellement en Mastère à l'école iT Amiens. Je possède un BTS SIO et un Bachelor Informatique. Je maîtrise l'ensemble de la chaîne de développement, du Back-end au Front-end, avec une attention particulière à la cybersécurité et à l'amélioration continue de mes compétences.",
   phone: '07 69 28 78 37',
@@ -47,14 +47,17 @@ export const competenceBadges = [
 ];
 
 export const tools = [
-  { name: 'VSCode', img: '/assets/outils/vscode.jpg' },
-  { name: 'Visual Studio', img: '/assets/outils/vst.jpg' },
-  { name: 'GitHub', img: '/assets/outils/github.png' },
-  { name: 'Unity', img: '/assets/outils/unity.jpg' },
-  { name: 'Photoshop', img: '/assets/outils/photoshop.png' },
-  { name: 'EduPython', img: '/assets/outils/edupython.jpg' },
-  { name: 'Template Jinja', img: '/assets/outils/jinja.png' },
-  { name: 'Blender', img: '/assets/outils/blender.png' },
+  { name: 'VSCode',          img: '/assets/outils/vscode.jpg',    desc: 'Éditeur principal pour tous mes projets web, avec extensions Prettier, ESLint et GitLens.' },
+  { name: 'Visual Studio',   img: '/assets/outils/vst.jpg',       desc: 'IDE complet pour le développement C# / .NET : WinForms, .NET MAUI et applications desktop.' },
+  { name: 'GitHub',          img: '/assets/outils/github.png',    desc: 'Gestion de versions, branches, pull requests et hébergement de tous mes projets.' },
+  { name: 'Unity',           img: '/assets/outils/unity.jpg',     desc: 'Moteur de jeu 2D/3D utilisé pour des projets personnels de game development en C#.' },
+  { name: 'Photoshop',       img: '/assets/outils/photoshop.png', desc: 'Retouche photo, création de maquettes UI et conception d\'assets graphiques.' },
+  { name: 'EduPython',       img: '/assets/outils/edupython.jpg', desc: 'Environnement Python pédagogique utilisé en BTS SIO pour l\'algorithmie.' },
+  { name: 'Template Jinja',  img: '/assets/outils/Jinja.png',     desc: 'Moteur de templates Python intégré à Flask pour générer des vues HTML dynamiques.' },
+  { name: 'Blender',         img: '/assets/outils/blender.png',   desc: 'Modélisation 3D, sculpting et animation pour des projets créatifs personnels.' },
+  { name: 'Figma',           img: '/assets/outils/figma.png',     desc: 'Conception de maquettes UI/UX, prototypage interactif et design de composants.' },
+  { name: 'Trello',          img: '/assets/outils/trello.png',    desc: 'Gestion de projets en méthode Kanban, suivi des tâches et organisation en équipe.' },
+  { name: 'Pack Office',     img: '/assets/outils/office.png',    desc: 'Word, Excel, PowerPoint — rédaction de rapports, tableaux et présentations professionnelles.' },
 ];
 
 // ── Projects ──────────────────────────────────────────────────────────────
@@ -195,11 +198,20 @@ export const certifications = [
     title: 'PIX — 433 points',
     date: '25 mars 2025',
     desc: 'Certification nationale des compétences numériques.',
+    files: ['/assets/certifications/certification-pix-20250325.pdf'],
   },
   {
     title: 'CNIL RGPD — 5 / 5 modules validés',
     date: '2025',
     desc: 'Formation certifiée sur la protection des données personnelles.',
+    files: [
+      '/assets/certifications/RGPD1.pdf',
+      '/assets/certifications/RGPD2.pdf',
+      '/assets/certifications/RGPD3.pdf',
+      '/assets/certifications/RGPD4.pdf',
+      '/assets/certifications/RGPD5.pdf',
+    ],
+    labels: ['Module 1', 'Module 2', 'Module 3', 'Module 4', 'Module 5'],
   },
 ];
 
