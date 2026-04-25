@@ -1,29 +1,309 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conditions Générales d'Utilisation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditions Générales d'Utilisation — Baptiste Sandoz</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #6366f1;
+      --accent-glow: rgba(99,102,241,.1);
+      --text: #1a1d27;
+      --text-muted: #6b7280;
+      --border: #e2e6ee;
+      --surface: #ffffff;
+      --bg: #f8f9fb;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 48px 24px 80px;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    .header {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      margin-bottom: 24px;
+      transition: opacity .15s;
+    }
+    .back-link:hover { opacity: .7; }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-glow);
+      border: 1px solid rgba(99,102,241,.2);
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .meta span::before { content: '· '; }
+    .meta span:first-child::before { content: ''; }
+
+    /* ── Intro card ── */
+    .intro {
+      background: var(--accent-glow);
+      border: 1px solid rgba(99,102,241,.18);
+      border-radius: 12px;
+      padding: 18px 22px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      line-height: 1.75;
+    }
+
+    /* ── Sections ── */
+    .section {
+      margin-bottom: 36px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    p + p { margin-top: 10px; }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    ul li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.7;
+    }
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      body { padding: 32px 16px 60px; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Conditions Générales d'Utilisation</h1>
-    <p>Bienvenue sur notre site. En accédant à ce site, vous acceptez les présentes conditions générales d'utilisation. Veuillez les lire attentivement.</p>
+  <div class="container">
 
-    <h2>1. Objet</h2>
-    <p>Les présentes conditions générales ont pour objet de définir les modalités et conditions dans lesquelles les utilisateurs peuvent accéder et utiliser le site.</p>
+    <!-- Header -->
+    <div class="header">
+      <a class="back-link" href="/">
+        ← Retour au portfolio
+      </a>
+      <div class="badge">Mentions légales</div>
+      <h1>Conditions Générales d'Utilisation</h1>
+      <div class="meta">
+        <span>Baptiste Sandoz — Portfolio 2026</span>
+        <span>Dernière mise à jour : 25 avril 2026</span>
+        <span>Loi française applicable</span>
+      </div>
+    </div>
 
-    <h2>2. Propriété intellectuelle</h2>
-    <p>Tous les contenus présents sur ce site (textes, images, vidéos, etc.) sont protégés par le droit d'auteur. Toute reproduction, distribution ou utilisation non autorisée est strictement interdite.</p>
+    <!-- Intro -->
+    <div class="intro">
+      Ce site est le portfolio personnel de <strong>Baptiste Sandoz</strong>, développeur Fullstack Junior en formation à l'école iT d'Amiens. En accédant à ce site, vous acceptez les présentes conditions d'utilisation. Ce site est fourni à titre informatif et de présentation de compétences professionnelles.
+    </div>
 
-    <h2>3. Responsabilité</h2>
-    <p>Nous ne pouvons être tenus responsables des dommages directs ou indirects résultant de l'utilisation de ce site.</p>
+    <!-- Section 1 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">1</span>
+        <h2>Objet du site</h2>
+      </div>
+      <p>Ce portfolio a pour unique objectif de présenter les compétences, projets, expériences et formations de Baptiste Sandoz dans le cadre de sa recherche d'alternance et de son développement professionnel.</p>
+      <p>Le site ne collecte aucune donnée personnelle, ne réalise aucune transaction commerciale, et ne propose aucun service payant.</p>
+    </div>
 
-    <h2>4. Modifications</h2>
-    <p>Nous nous réservons le droit de modifier ces conditions générales à tout moment. Les utilisateurs sont invités à les consulter régulièrement.</p>
+    <!-- Section 2 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">2</span>
+        <h2>Propriété intellectuelle</h2>
+      </div>
+      <p>L'ensemble des contenus présents sur ce site — textes, code source, design, images, projets présentés — sont la propriété exclusive de Baptiste Sandoz, sauf mention contraire explicite.</p>
+      <ul>
+        <li>Toute reproduction partielle ou totale sans autorisation écrite est interdite.</li>
+        <li>Les logos et marques de technologies tierces (React, PHP, etc.) appartiennent à leurs propriétaires respectifs.</li>
+        <li>Les projets présentés sont des réalisations personnelles ou pédagogiques : leur code source peut être accessible sur GitHub à titre de démonstration.</li>
+      </ul>
+    </div>
 
-    <h2>5. Loi applicable</h2>
-    <p>Ces conditions générales sont régies par la loi française. Tout litige sera soumis à la compétence exclusive des tribunaux français.</p>
+    <!-- Section 3 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">3</span>
+        <h2>Responsabilité</h2>
+      </div>
+      <p>Baptiste Sandoz s'efforce de maintenir les informations de ce site à jour et exactes. Cependant, il ne peut garantir l'exhaustivité ou l'exactitude de toutes les informations présentées.</p>
+      <ul>
+        <li>Le site est fourni "en l'état", sans garantie d'aucune sorte.</li>
+        <li>Baptiste Sandoz ne saurait être tenu responsable des dommages directs ou indirects liés à l'utilisation de ce site.</li>
+        <li>Les liens vers des sites tiers sont fournis à titre informatif uniquement. Leur contenu ne relève pas de la responsabilité de ce portfolio.</li>
+      </ul>
+    </div>
 
-    <p>Dernière mise à jour : 25 avril 2026</p>
+    <!-- Section 4 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">4</span>
+        <h2>Données personnelles & Confidentialité</h2>
+      </div>
+      <p>Ce site ne collecte, ne stocke ni ne traite aucune donnée personnelle des visiteurs. Aucun cookie de traçage n'est utilisé. Aucun formulaire ne transmet de données à des tiers.</p>
+      <p>Les informations de contact présentes sur ce site (e-mail, téléphone) sont fournies dans le seul but de permettre aux recruteurs et entreprises de prendre contact pour une opportunité professionnelle.</p>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">5</span>
+        <h2>Jeux et contenus interactifs</h2>
+      </div>
+      <p>Ce portfolio intègre des jeux développés à titre personnel (Casse-Briques, Morpion, Snake, Puissance 4). Ces jeux sont fournis uniquement à des fins de démonstration technique.</p>
+      <ul>
+        <li>Ils ne collectent aucune donnée utilisateur.</li>
+        <li>Ils peuvent être interrompus ou retirés à tout moment sans préavis.</li>
+        <li>Leur code source est disponible sur GitHub à titre éducatif.</li>
+      </ul>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">6</span>
+        <h2>Modifications des CGU</h2>
+      </div>
+      <p>Ces conditions générales peuvent être mises à jour à tout moment afin de refléter les évolutions du site ou des obligations légales. La date de dernière mise à jour est indiquée en en-tête de ce document. Il est conseillé de consulter cette page régulièrement.</p>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">7</span>
+        <h2>Loi applicable & Juridiction</h2>
+      </div>
+      <p>Les présentes conditions générales sont régies par le droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux compétents du ressort d'Amiens (France) seront seuls compétents.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>© 2026 Baptiste Sandoz — Tous droits réservés</p>
+      <a href="/">← Retour au portfolio</a>
+    </div>
+
+  </div>
 </body>
 </html>

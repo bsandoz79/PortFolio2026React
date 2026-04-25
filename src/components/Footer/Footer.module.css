@@ -21,6 +21,15 @@
   font-size: 0.78rem;
 }
 
+.terms {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,.35);
+  transition: color 0.18s;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.terms:hover { color: rgba(255,255,255,.7); }
+
 @media (max-width: 600px) {
   .inner { flex-direction: column; text-align: center; }
 }

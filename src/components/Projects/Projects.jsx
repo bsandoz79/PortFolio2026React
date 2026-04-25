@@ -12,7 +12,7 @@ const TYPE_COLORS = {
 };
 
 /* ── Showcase modal ── */
-function ShowcaseModal({ project, onClose }) {
+function ShowcaseModal({ project, onClose, onPlay }) {
   const { showcase } = project;
   const [imgIdx, setImgIdx]   = useState(0);
   const [dir, setDir]         = useState(1);
@@ -65,7 +65,14 @@ function ShowcaseModal({ project, onClose }) {
             <h2 className={styles.showcaseTitle}>{project.title}</h2>
             <span className={styles.showcaseDate}>{project.date}</span>
           </div>
-          <button className={styles.showcaseClose} onClick={onClose} aria-label="Fermer">✕</button>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            {project.gameUrl && (
+              <button className={styles.tryBtn} onClick={() => { onClose(); onPlay(project); }}>
+                🎮 Essayer le jeu
+              </button>
+            )}
+            <button className={styles.showcaseClose} onClick={onClose} aria-label="Fermer">✕</button>
+          </div>
         </div>
 
         {/* ── Body ── */}
@@ -194,10 +201,55 @@ function ProjectCard({ project, onOpen }) {
   );
 }
 
+/* ── Game modal ── */
+function GameModal({ project, onClose }) {
+  useEffect(() => {
+    const h = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  }, [onClose]);
+
+  return (
+    <motion.div
+      className={styles.gameOverlay}
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      onClick={onClose}
+    >
+      <motion.div
+        className={styles.gamePanel}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ type: 'spring', stiffness: 280, damping: 26 }}
+        onClick={e => e.stopPropagation()}
+      >
+        <div className={styles.gameHeader}>
+          <span className={styles.gameHeaderTitle}>🎮 {project.title}</span>
+          <div style={{ display: 'flex', gap: 8 }}>
+            <a href={project.gameUrl} target="_blank" rel="noopener" className={styles.gameNewTab} title="Ouvrir dans un nouvel onglet">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Plein écran
+            </a>
+            <button className={styles.showcaseClose} onClick={onClose}>✕</button>
+          </div>
+        </div>
+        <iframe
+          src={project.gameUrl}
+          title={project.title}
+          className={styles.gameFrame}
+          allowFullScreen
+        />
+      </motion.div>
+    </motion.div>
+  );
+}
+
 /* ── Section principale ── */
 export default function Projects() {
   const [active, setActive]       = useState('all');
   const [showcase, setShowcase]   = useState(null);
+  const [activeGame, setActiveGame] = useState(null);
 
   const filtered = (active === 'all' ? projects : projects.filter(p => p.tags.includes(active)))
     .slice()
@@ -241,7 +293,10 @@ export default function Projects() {
       </div>
 
       <AnimatePresence>
-        {showcase && <ShowcaseModal project={showcase} onClose={() => setShowcase(null)} />}
+        {showcase && <ShowcaseModal project={showcase} onClose={() => setShowcase(null)} onPlay={p => { setShowcase(null); setActiveGame(p); }} />}
+      </AnimatePresence>
+      <AnimatePresence>
+        {activeGame && <GameModal project={activeGame} onClose={() => setActiveGame(null)} />}
       </AnimatePresence>
     </section>
   );
