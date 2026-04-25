@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/terms-and-conditions", "destination": "/public/terms-and-conditions.html" }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}

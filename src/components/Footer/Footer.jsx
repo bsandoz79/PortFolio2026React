@@ -9,6 +9,9 @@ export default function Footer() {
         <p className={styles.built}>
           Construit avec React + Vite + Matter.js
         </p>
+        <p>
+          <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer"></a>
+        </p>
       </div>
     </footer>
   );

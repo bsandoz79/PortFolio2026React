@@ -1,7 +1,49 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import * as pdfjsLib from 'pdfjs-dist';
 import { experiences, education, certifications } from '../../data/portfolio';
 import styles from './Experience.module.css';
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.mjs',
+  import.meta.url
+).href;
+
+function PdfThumb({ src }) {
+  const canvasRef = useRef(null);
+  const [ready, setReady]   = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const pdf      = await pdfjsLib.getDocument(src).promise;
+        const page     = await pdf.getPage(1);
+        if (cancelled) return;
+        const scale    = 90 / page.getViewport({ scale: 1 }).width;
+        const viewport = page.getViewport({ scale });
+        const canvas   = canvasRef.current;
+        if (!canvas) return;
+        canvas.width  = viewport.width;
+        canvas.height = viewport.height;
+        await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+        if (!cancelled) setReady(true);
+      } catch {
+        if (!cancelled) setFailed(true);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [src]);
+
+  if (failed) return null;
+  return (
+    <>
+      {!ready && <div className={styles.pdfShimmer} />}
+      <canvas ref={canvasRef} className={styles.pdfCanvas} style={{ opacity: ready ? 1 : 0 }} />
+    </>
+  );
+}
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
@@ -163,21 +205,12 @@ function CertCard({ cert, onOpen }) {
       whileHover={{ y: -3, boxShadow: '0 8px 24px rgba(99,102,241,.12)' }}
       transition={{ type: 'spring', stiffness: 400, damping: 20 }}
     >
-      {/* PDF placeholder thumbnail */}
       <div className={styles.certThumb}>
-        <div className={styles.certPdfIcon}>
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-            <line x1="9" y1="13" x2="15" y2="13"/>
-            <line x1="9" y1="17" x2="15" y2="17"/>
-          </svg>
-          <span className={styles.certPdfBadge}>PDF</span>
-          {multi && <span className={styles.certPdfCount}>{cert.files.length} docs</span>}
-        </div>
+        <PdfThumb src={cert.files[0]} />
         <div className={styles.certThumbOverlay}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
           <span>Consulter</span>
+          {multi && <span>{cert.files.length} docs</span>}
         </div>
       </div>
 
