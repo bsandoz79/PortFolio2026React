@@ -243,6 +243,167 @@
   border-color: rgba(99,102,241,.2);
 }
 
+/* ── Bloc alternance ── */
+.altBlock {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 22px 28px;
+  margin-bottom: 16px;
+}
+
+.altHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.altLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: .7;
+  transition: opacity .15s;
+}
+.altLink:hover { opacity: 1; }
+
+.altGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.altItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+}
+
+.altLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text-muted);
+}
+
+.altValue {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.5;
+}
+.altValue em {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  display: block;
+}
+
+/* ── Grille salariale ── */
+.salaryBlock {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.salaryTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.salaryRef {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.salaryTable {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+
+.salaryRow {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 0;
+}
+
+.salaryRow > span {
+  padding: 9px 14px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+}
+.salaryRow > span:last-child { border-right: none; }
+.salaryRow > span strong { color: var(--text); font-weight: 700; }
+
+.salaryHead > span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text-muted);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.salaryHighlight > span {
+  background: var(--accent-glow);
+  color: var(--accent);
+  font-weight: 600;
+  border-color: rgba(99,102,241,.15);
+}
+.salaryHighlight > span strong { color: var(--accent); }
+.salaryHighlight em {
+  display: inline-block;
+  font-style: normal;
+  font-size: 0.64rem;
+  font-weight: 700;
+  background: var(--accent);
+  color: white;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.salaryNote {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  font-style: italic;
+}
+
 .cvBlock {
   display: flex;
   align-items: center;
@@ -305,7 +466,13 @@
   .photoFrame { width: 160px; height: 190px; }
 }
 
+@media (max-width: 768px) {
+  .altGrid { grid-template-columns: repeat(2, 1fr); }
+  .altBlock { padding: 18px 20px; }
+}
+
 @media (max-width: 540px) {
+  .altGrid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .topRow { grid-template-columns: 1fr; gap: 20px; }
   .photoCol { flex-direction: row; align-items: center; gap: 16px; }
   .photoFrame { width: 100px; height: 120px; flex-shrink: 0; }

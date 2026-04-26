@@ -70,6 +70,79 @@ export default function About() {
             </motion.div>
           </div>
 
+          {/* ── Bloc alternance ── */}
+          <motion.div className={styles.altBlock} variants={fadeUp}>
+            <div className={styles.altHeader}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              <span>Informations Alternance</span>
+              <a
+                href="https://ecole-it.com/formations/mastere-architecture-et-developpement-logiciel-big-data-intelligence-artificielle/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.altLink}
+              >
+                Voir la formation
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+            <div className={styles.altGrid}>
+              <div className={styles.altItem}>
+                <span className={styles.altLabel}>Formation</span>
+                <span className={styles.altValue}>Mastère Architecture & Dev Logiciel<br/><em>Big Data / Intelligence Artificielle</em></span>
+              </div>
+              <div className={styles.altItem}>
+                <span className={styles.altLabel}>Niveau obtenu</span>
+                <span className={styles.altValue}>Bac+5 — RNCP Niveau 7<br/><em>Titre 38822</em></span>
+              </div>
+              <div className={styles.altItem}>
+                <span className={styles.altLabel}>Rythme</span>
+                <span className={styles.altValue}>1 semaine école<br/><em>3 semaines en entreprise</em></span>
+              </div>
+              <div className={styles.altItem}>
+                <span className={styles.altLabel}>Durée</span>
+                <span className={styles.altValue}>2 ans<br/><em>Dès Septembre / Octobre 2026</em></span>
+              </div>
+              <div className={styles.altItem}>
+                <span className={styles.altLabel}>École</span>
+                <span className={styles.altValue}>École iT — Amiens<br/><em>784h · 90% présentiel</em></span>
+              </div>
+              <div className={styles.altItem}>
+                <span className={styles.altLabel}>Contrat</span>
+                <span className={styles.altValue}>Apprentissage ou<br/><em>professionnalisation</em></span>
+              </div>
+            </div>
+            {/* ── Grille salariale ── */}
+            <div className={styles.salaryBlock}>
+              <p className={styles.salaryTitle}>
+                💰 Grille salariale minimale
+                <span className={styles.salaryRef}>Base SMIC 2026 · 1 823,03 €/mois brut · 12,02 €/h · en vigueur au 1ᵉʳ jan. 2026</span>
+              </p>
+              <div className={styles.salaryTable}>
+                <div className={`${styles.salaryRow} ${styles.salaryHead}`}>
+                  <span>Tranche d'âge</span>
+                  <span>1ère année</span>
+                  <span>2ème année</span>
+                </div>
+                <div className={styles.salaryRow}>
+                  <span>18 – 20 ans</span>
+                  <span>43% · <strong>784 €</strong></span>
+                  <span>51% · <strong>930 €</strong></span>
+                </div>
+                <div className={`${styles.salaryRow} ${styles.salaryHighlight}`}>
+                  <span>21 – 25 ans <em>Mon cas</em></span>
+                  <span>53% · <strong>966 €</strong></span>
+                  <span>61% · <strong>1 112 €</strong></span>
+                </div>
+                <div className={styles.salaryRow}>
+                  <span>26 ans et +</span>
+                  <span>100% · <strong>1 823 €</strong></span>
+                  <span>100% · <strong>1 823 €</strong></span>
+                </div>
+              </div>
+              <p className={styles.salaryNote}>Montants bruts mensuels minimums légaux au 1ᵉʳ janvier 2026. Les conventions collectives peuvent prévoir des salaires supérieurs.</p>
+            </div>
+          </motion.div>
+
           <motion.div className={styles.cvBlock} variants={fadeUp}>
             <div className={styles.cvInfo}>
               <h3>Mon CV</h3>
