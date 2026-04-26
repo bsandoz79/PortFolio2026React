@@ -4,9 +4,9 @@ import MarbleRun from '../MarbleRun/MarbleRun';
 import styles from './Hero.module.css';
 
 const TYPED_WORDS = [
-  'Développeur Fullstack Junior',
+  'Étudiant en Mastère Informatique',
   'Passionné de cybersécurité',
-  'Futur alternant Mastère IT',
+  'En recherche d\'alternance 12–24 mois',
   'React · PHP · Python · SQL',
 ];
 
@@ -106,9 +106,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.62 }}
         >
-          Étudiant en Bachelor Informatique à l'école iT d'Amiens, passionné
-          par le développement Fullstack et la cybersécurité. Je recherche une
-          alternance de 24 mois dès Septembre 2026 pour un Mastère.
+          Étudiant en Mastère Informatique à l'école iT d'Amiens, passionné
+          par le développement web et la cybersécurité. Je recherche une
+          alternance de 12 à 24 mois dès Septembre 2026.
         </motion.p>
 
         <motion.div

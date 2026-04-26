@@ -21,7 +21,7 @@ export default function About() {
           <motion.p className="section-label" variants={fadeUp}>À propos</motion.p>
           <motion.h2 className="section-title" variants={fadeUp}>Qui suis-je ?</motion.h2>
           <motion.p className="section-sub" variants={fadeUp} style={{ marginBottom: 48 }}>
-            Développeur Fullstack Junior, je recherche une alternance de 12 à 24 mois dès Septembre 2026.
+            Étudiant en Mastère Informatique, je recherche une alternance de 12 à 24 mois dès Septembre 2026.
           </motion.p>
 
           <div className={styles.topRow}>
@@ -45,7 +45,7 @@ export default function About() {
             {/* Bio + badges */}
             <motion.div className={styles.bioCol} variants={fadeUp}>
               <div className={styles.profileLabel}>
-                <span className={styles.badge2}>Développeur Fullstack Junior</span>
+                <span className={styles.badge2}>Étudiant en Mastère Informatique</span>
                 <span className={styles.badgeSchool}>Mastère · école iT Amiens</span>
               </div>
               <p className={styles.bio}>{profil.bio}</p>

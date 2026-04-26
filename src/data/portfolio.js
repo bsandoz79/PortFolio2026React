@@ -1,10 +1,10 @@
 // ── Profil ────────────────────────────────────────────────────────────────
 export const profil = {
   name: 'Baptiste Sandoz',
-  title: 'Développeur Fullstack Junior',
+  title: 'Étudiant en Mastère Informatique',
   subtitle: 'Alternance de 12 à 24 mois — dès Septembre 2026',
   school: 'Mastère Informatique · école iT Amiens',
-  bio: "Étudiant en Développement Fullstack Junior, actuellement en Mastère à l'école iT Amiens. Je possède un BTS SIO et un Bachelor Informatique. Je maîtrise l'ensemble de la chaîne de développement, du Back-end au Front-end, avec une attention particulière à la cybersécurité et à l'amélioration continue de mes compétences.",
+  bio: "Étudiant en Mastère Informatique à l'école iT Amiens, titulaire d'un BTS SIO option SLAM et d'un Bachelor Informatique. Passionné par le développement web et la cybersécurité, je cherche à mettre mes compétences en pratique dans le cadre d'une alternance de 12 à 24 mois dès septembre 2026.",
   phone: '07 69 28 78 37',
   email: 'baptiste.sandoz@proton.me',
   location: 'Amiens, France (80000)',
