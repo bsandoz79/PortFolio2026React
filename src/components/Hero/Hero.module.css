@@ -383,15 +383,24 @@
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    overflow: visible;
-  }
-  .left {
-    padding: 48px 24px 40px;
-    justify-content: flex-start;
-  }
+  .hero { grid-template-columns: 1fr; overflow: visible; }
+  .left { padding: 48px 24px 40px; justify-content: flex-start; }
   .right { display: none; }
   .orbA { width: 300px; height: 300px; }
   .orbB { display: none; }
+}
+
+@media (max-width: 480px) {
+  .left { padding: 32px 20px 36px; gap: 0; }
+  .name { font-size: clamp(2.2rem, 10vw, 2.8rem); margin-bottom: 12px; }
+  .bio { font-size: 0.88rem; margin-bottom: 20px; }
+  .stats { padding: 14px 12px; gap: 4px; flex-wrap: wrap; justify-content: center; }
+  .stat strong { font-size: 1.2rem; }
+  .stat span   { font-size: 0.68rem; }
+  .divider     { display: none; }
+  .ctas        { gap: 8px; margin-bottom: 20px; }
+  .btnPrimary, .btnSecondary { padding: 11px 18px; font-size: 0.82rem; }
+  .photoRow    { padding: 10px 14px; margin-bottom: 20px; }
+  .availBadge  { font-size: 0.72rem; padding: 5px 12px; margin-bottom: 14px; }
+  .scrollDown  { display: none; }
 }

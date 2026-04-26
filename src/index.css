@@ -44,6 +44,9 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
 .section { padding: 88px 0; position: relative; }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
+@media (max-width: 768px) { .section { padding: 64px 0; } }
+@media (max-width: 480px) { .section { padding: 48px 0; } .container { padding: 0 16px; } }
+
 .section-label {
   display: inline-flex;
   align-items: center;

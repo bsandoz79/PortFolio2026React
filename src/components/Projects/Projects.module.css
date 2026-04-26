@@ -434,3 +434,25 @@
   .showcasePanel { max-height: 95vh; }
   .gameFrame { height: 80vh; }
 }
+
+@media (max-width: 540px) {
+  .showcaseOverlay { padding: 8px; }
+  .showcasePanel { border-radius: 14px; }
+  .showcaseHeader { padding: 16px 16px 14px; flex-wrap: wrap; gap: 8px; }
+  .showcaseTitle { font-size: 1rem; }
+  .showcaseBody { }
+  .showcaseLeft { padding: 16px; }
+  .showcaseRight { padding: 16px; gap: 14px; }
+  .tryBtn { font-size: 0.76rem; padding: 7px 12px; }
+  .scArrow { width: 38px; height: 38px; }
+  .scDot { font-size: 0.6rem; padding: 2px 7px; }
+  .showcaseSectionLabel { font-size: 0.68rem; }
+  .showcaseText { font-size: 0.84rem; }
+  .showcaseFeatures li { font-size: 0.82rem; }
+  .gameOverlay { padding: 0; }
+  .gamePanel { border-radius: 0; max-height: 100vh; }
+  .gameFrame { height: 88vh; }
+  .gameHeader { padding: 10px 14px; }
+  .filters { gap: 6px; }
+  .filterBtn { padding: 6px 12px; font-size: 0.76rem; }
+}

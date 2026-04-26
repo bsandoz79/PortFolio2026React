@@ -377,4 +377,24 @@
 
 @media (max-width: 768px) {
   .cols { grid-template-columns: 1fr; gap: 36px; }
+  .lbPanel { border-radius: 14px; }
+  .lbIframe { height: 55vh; }
+  .lbFooter { padding: 10px 14px; flex-wrap: wrap; gap: 8px; }
+  .lbDot { font-size: 0.62rem; padding: 2px 7px; }
+}
+
+@media (max-width: 480px) {
+  .item { padding-left: 28px; }
+  .timeline::before { left: 8px; }
+  .dot { left: 2px; width: 12px; height: 12px; }
+  .card { padding: 14px 16px; }
+  .cardTitle { font-size: 0.88rem; }
+  .bullets li { font-size: 0.79rem; }
+  .certCard { gap: 10px; padding: 12px; }
+  .certThumb { width: 76px; height: 60px; flex-shrink: 0; }
+  .lbHeader { padding: 14px 16px 12px; flex-wrap: wrap; gap: 8px; }
+  .lbTitle { font-size: 0.9rem; }
+  .lbIframe { height: 50vh; }
+  .lbPanel { margin: 8px; }
+  .lbNavBtn { padding: 6px 10px; font-size: 0.76rem; }
 }
