@@ -341,7 +341,7 @@
 .right {
   position: relative;
   height: 100vh;
-  background: linear-gradient(160deg, #f4f6fa 0%, #eef0f6 50%, #f0f2f8 100%);
+  background: var(--hero-right-bg);
   overflow: hidden;
 }
 

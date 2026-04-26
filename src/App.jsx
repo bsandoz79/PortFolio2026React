@@ -1,3 +1,4 @@
+import { useTheme } from './hooks/useTheme';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
@@ -8,9 +9,10 @@ import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 
 export default function App() {
+  const { dark, toggle } = useTheme();
   return (
     <>
-      <Navbar />
+      <Navbar isDark={dark} onThemeToggle={toggle} />
       <main>
         <Hero />
         <About />

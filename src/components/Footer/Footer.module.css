@@ -21,14 +21,34 @@
   font-size: 0.78rem;
 }
 
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.45);
+  transition: color 0.18s;
+}
+.socialLink:hover { color: rgba(255,255,255,.85); }
+
 .terms {
   font-size: 0.78rem;
-  color: rgba(255,255,255,.35);
+  color: rgba(255,255,255,.3);
   transition: color 0.18s;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.terms:hover { color: rgba(255,255,255,.7); }
+.terms:hover { color: rgba(255,255,255,.65); }
+
+@media (max-width: 600px) {
+  .socials { justify-content: center; }
+}
 
 @media (max-width: 600px) {
   .inner { flex-direction: column; text-align: center; }

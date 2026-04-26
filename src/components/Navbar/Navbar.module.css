@@ -10,7 +10,7 @@
 }
 
 .scrolled {
-  background: rgba(248, 249, 251, 0.92);
+  background: var(--nav-scrolled-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 1px 0 var(--border);
@@ -59,6 +59,26 @@
 .activeLink {
   color: var(--accent) !important;
   background: var(--accent-glow) !important;
+}
+
+.themeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-sm);
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+.themeToggle:hover {
+  color: var(--accent);
+  background: var(--accent-glow);
+  border-color: rgba(99,102,241,.3);
 }
 
 .burger {
