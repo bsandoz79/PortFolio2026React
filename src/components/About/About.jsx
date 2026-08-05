@@ -46,7 +46,7 @@ export default function About() {
             <motion.div className={styles.bioCol} variants={fadeUp}>
               <div className={styles.profileLabel}>
                 <span className={styles.badge2}>Étudiant en Mastère Informatique</span>
-                <span className={styles.badgeSchool}>Mastère · école iT Amiens</span>
+                <span className={styles.badgeSchool}>Mastère Expert DevOps · EPSI Arras</span>
               </div>
               <p className={styles.bio}>{profil.bio}</p>
 
@@ -76,7 +76,7 @@ export default function About() {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
               <span>Informations Alternance</span>
               <a
-                href="https://ecole-it.com/formations/mastere-architecture-et-developpement-logiciel-big-data-intelligence-artificielle/"
+                href="https://www.epsi.fr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.altLink}
@@ -88,11 +88,11 @@ export default function About() {
             <div className={styles.altGrid}>
               <div className={styles.altItem}>
                 <span className={styles.altLabel}>Formation</span>
-                <span className={styles.altValue}>Mastère Architecture & Dev Logiciel<br/><em>Big Data / Intelligence Artificielle</em></span>
+                <span className={styles.altValue}>Mastère Expert DevOps<br/><em>Cloud & DevOps</em></span>
               </div>
               <div className={styles.altItem}>
                 <span className={styles.altLabel}>Niveau obtenu</span>
-                <span className={styles.altValue}>Bac+5 — RNCP Niveau 7<br/><em>Titre 38822</em></span>
+                <span className={styles.altValue}>Bac+5 — RNCP Niveau 7<br/><em>RNCP 35584</em></span>
               </div>
               <div className={styles.altItem}>
                 <span className={styles.altLabel}>Rythme</span>
@@ -104,7 +104,7 @@ export default function About() {
               </div>
               <div className={styles.altItem}>
                 <span className={styles.altLabel}>École</span>
-                <span className={styles.altValue}>École iT — Amiens<br/><em>784h · 90% présentiel</em></span>
+                <span className={styles.altValue}>EPSI — Arras<br/><em>940h · alternance</em></span>
               </div>
               <div className={styles.altItem}>
                 <span className={styles.altLabel}>Contrat</span>
@@ -161,7 +161,7 @@ export default function About() {
                 Afficher le CV
               </label>
               <a
-                href="/assets/CV/CV Alternancce M1 Sandoz Baptiste_PDF_.pdf"
+                href="/assets/CV/CV Baptiste SANDOZ - EPSI Mastère Data & IA(1).PDF"
                 target="_blank"
                 rel="noopener"
                 className={styles.btnView}
@@ -170,7 +170,7 @@ export default function About() {
                 Visualiser
               </a>
               <a
-                href="/assets/CV/CV Alternancce M1 Sandoz Baptiste_PDF_.pdf"
+                href="/assets/CV/CV Baptiste SANDOZ - EPSI Mastère Data & IA(1).PDF"
                 download
                 className={styles.btnDl}
               >
@@ -183,7 +183,7 @@ export default function About() {
           {showCV && (
             <div style={{ margin: '32px auto', maxWidth: 900, boxShadow: '0 2px 16px rgba(0,0,0,0.10)', borderRadius: 12, overflow: 'hidden', background: 'white' }}>
               <iframe
-                src="/assets/CV/CV Alternancce M1 Sandoz Baptiste_PDF_.pdf"
+                src="/assets/CV/CV Baptiste SANDOZ - EPSI Mastère Data & IA(1).PDF"
                 title="CV Baptiste Sandoz"
                 width="100%"
                 height="700px"

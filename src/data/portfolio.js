@@ -3,8 +3,8 @@ export const profil = {
   name: 'Baptiste Sandoz',
   title: 'Étudiant en Mastère Informatique',
   subtitle: 'Alternance de 12 à 24 mois — dès Septembre 2026',
-  school: 'Mastère Informatique · école iT Amiens',
-  bio: "Étudiant en Mastère Informatique à l'école iT Amiens, titulaire d'un BTS SIO option SLAM et d'un Bachelor Informatique. Passionné par le développement web et la cybersécurité, je cherche à mettre mes compétences en pratique dans le cadre d'une alternance de 12 à 24 mois dès septembre 2026.",
+  school: 'Mastère Expert DevOps · EPSI Arras',
+  bio: "Étudiant en Mastère Expert DevOps à l'EPSI Arras, titulaire d'un BTS SIO option SLAM et d'un Bachelor Informatique. Passionné par le développement web et la cybersécurité, je cherche à mettre mes compétences en pratique dans le cadre d'une alternance de 12 à 24 mois dès septembre 2026.",
   phone: '07 69 28 78 37',
   email: 'baptiste.sandoz@proton.me',
   location: 'Amiens, France (80000)',
@@ -411,11 +411,17 @@ export const experiences = [
 // ── Education ─────────────────────────────────────────────────────────────
 export const education = [
   {
+    period: '2026 → 2027',
+    title: 'Mastère Expert DevOps',
+    school: 'EPSI — Arras',
+    tags: ['En cours'],
+    highlight: true,
+  },
+  {
     period: '2025 → 2026',
     title: 'Bachelor Informatique',
     school: 'école iT — Amiens',
-    tags: ['En cours'],
-    highlight: true,
+    tags: ['Diplôme obtenu'],
   },
   {
     period: '2023 → 2025',

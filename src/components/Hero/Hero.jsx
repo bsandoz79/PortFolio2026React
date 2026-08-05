@@ -106,7 +106,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.62 }}
         >
-          Étudiant en Mastère Informatique à l'école iT d'Amiens, passionné
+          Étudiant en Mastère Expert DevOps à l'EPSI d'Arras, passionné
           par le développement web et la cybersécurité. Je recherche une
           alternance de 12 à 24 mois dès Septembre 2026.
         </motion.p>
