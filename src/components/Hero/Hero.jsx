@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import MarbleRun from '../MarbleRun/MarbleRun';
+import { projects } from '../../data/portfolio';
 import styles from './Hero.module.css';
 
 const TYPED_WORDS = [
@@ -161,7 +162,7 @@ export default function Hero() {
           </div>
           <div className={styles.divider} />
           <div className={styles.stat}>
-            <strong>6</strong>
+            <strong>{projects.length}</strong>
             <span>Projets</span>
           </div>
           <div className={styles.divider} />

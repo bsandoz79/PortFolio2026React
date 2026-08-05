@@ -357,6 +357,38 @@ export const projects = [
       screenshots: ['/assets/project/Jeux/Puissance4Screens.png'],
     },
   },
+  {
+    id: 13,
+    title: 'Christophe Poix Moto',
+    date: '2026',
+    img: '/assets/project/Christophe Poix Moto/page aceuille.png',
+    tags: ['site', 'perso'],
+    techs: ['Next.js', 'React', 'Leaflet', 'CSS'],
+    description: 'Site vitrine pour un mécanicien moto qui intervient à domicile : services, zone d\'intervention et prise de contact.',
+    showcase: {
+      type: 'Projet perso',
+      typeColor: 'green',
+      context: 'Projet personnel développé pour Christophe Poix, mécanicien moto indépendant qui se déplace directement chez ses clients à Amiens et dans un rayon de 50 km. L\'objectif était de lui offrir une vitrine professionnelle simple pour présenter ses services et faciliter la prise de contact.',
+      goal: 'Créer un site vitrine clair présentant les prestations, la zone d\'intervention et les horaires, avec plusieurs moyens de contacter rapidement le mécanicien.',
+      features: [
+        'Présentation des prestations (entretien courant, diagnostic panne, freinage, pneumatiques, révision complète, dépannage à domicile)',
+        'Carte interactive Leaflet / OpenStreetMap de la zone d\'intervention (50 km autour de Thézy-Glimont)',
+        'Galerie photo des interventions réalisées',
+        'Tableau des horaires de disponibilité',
+        'Page contact avec téléphone, email et lien Facebook',
+      ],
+      learned: 'Première prise en main de Next.js pour un site vitrine complet, structuration en pages et composants, et intégration d\'une carte interactive avec Leaflet. Travail sur une UI sombre orientée conversion (appel direct, demande de devis).',
+      screenshots: [
+        '/assets/project/Christophe Poix Moto/page aceuille.png',
+        '/assets/project/Christophe Poix Moto/Service.png',
+        '/assets/project/Christophe Poix Moto/Galerie.png',
+        "/assets/project/Christophe Poix Moto/Zone d'intervention.png",
+        '/assets/project/Christophe Poix Moto/Horraire.png',
+        '/assets/project/Christophe Poix Moto/contact.png',
+      ],
+      screenshotLabels: ['Accueil', 'Services', 'Galerie', 'Zone d\'intervention', 'Horaires', 'Contact'],
+    },
+  },
 ];
 
 export const filters = [
