@@ -251,7 +251,7 @@ export default function Projects() {
   const [showcase, setShowcase]   = useState(null);
   const [activeGame, setActiveGame] = useState(null);
 
-  const filtered = (active === 'all' ? projects : projects.filter(p => p.tags.includes(active)))
+  const filtered = (active === 'all' ? projects.filter(p => !p.tags.includes('jeu')) : projects.filter(p => p.tags.includes(active)))
     .slice()
     .reverse();
 

@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# C# build artifacts (jeux hébergés dans public/assets/project)
+[Bb]in/
+[Oo]bj/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morpion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Morpion</h1>
+
+    <div class="players">
+      <div class="player-input">
+        <label for="name-x">Nom du joueur <span class="x">X</span></label>
+        <input type="text" id="name-x" placeholder="Joueur X" maxlength="20">
+      </div>
+      <div class="player-input">
+        <label for="name-o">Nom du joueur <span class="o">O</span></label>
+        <input type="text" id="name-o" placeholder="Joueur O" maxlength="20">
+      </div>
+    </div>
+
+    <div class="status" id="status">Tour du joueur X</div>
+
+    <div class="board" id="board">
+      <div class="cell" data-index="0"></div>
+      <div class="cell" data-index="1"></div>
+      <div class="cell" data-index="2"></div>
+      <div class="cell" data-index="3"></div>
+      <div class="cell" data-index="4"></div>
+      <div class="cell" data-index="5"></div>
+      <div class="cell" data-index="6"></div>
+      <div class="cell" data-index="7"></div>
+      <div class="cell" data-index="8"></div>
+    </div>
+
+    <div class="scores">
+      <div class="score">
+        <span class="score-label x" id="label-x">X</span>
+        <span class="score-value" id="score-x">0</span>
+      </div>
+      <div class="score">
+        <span class="score-label draw">Égalité</span>
+        <span class="score-value" id="score-draw">0</span>
+      </div>
+      <div class="score">
+        <span class="score-label o" id="label-o">O</span>
+        <span class="score-value" id="score-o">0</span>
+      </div>
+    </div>
+
+    <button class="btn" id="restart">Rejouer</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

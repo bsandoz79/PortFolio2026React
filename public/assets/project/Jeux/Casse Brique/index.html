@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casse-Brique</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+
+        <!-- MENU -->
+        <div id="screen-menu" class="screen active">
+            <canvas id="menu-bg"></canvas>
+            <div class="menu-overlay">
+                <div class="logo">
+                    <h1>CASSE<em>BRIQUE</em></h1>
+                    <p class="logo-sub">Bachelor Informatique &middot; 2024</p>
+                </div>
+                <nav class="menu-nav">
+                    <button id="btn-play" class="btn primary">&#9654; JOUER</button>
+                    <button id="btn-scores" class="btn">&#9733; SCORES</button>
+                    <button id="btn-help" class="btn">? AIDE</button>
+                </nav>
+                <p class="hint">&#8592; &#8594; Raquette &nbsp;|&nbsp; ESPACE Lancer/Pause &nbsp;|&nbsp; ESC Menu</p>
+            </div>
+        </div>
+
+        <!-- JEU -->
+        <div id="screen-game" class="screen">
+            <div id="hud">
+                <div class="hud-block">
+                    <span class="hud-label">SCORE</span>
+                    <span id="hud-score">0</span>
+                </div>
+                <div class="hud-block center">
+                    <span class="hud-label">NIVEAU <span id="hud-level">1</span></span>
+                    <div id="hud-powerup"></div>
+                </div>
+                <div class="hud-block right">
+                    <span class="hud-label">VIES</span>
+                    <div id="hud-lives"></div>
+                </div>
+            </div>
+            <canvas id="game-canvas"></canvas>
+        </div>
+
+        <!-- SCORES -->
+        <div id="screen-scores" class="screen">
+            <div class="panel">
+                <h2>&#127942; Meilleurs Scores</h2>
+                <table class="scores-table">
+                    <thead><tr><th>#</th><th>Joueur</th><th>Score</th><th>Niveau</th></tr></thead>
+                    <tbody id="scores-body"></tbody>
+                </table>
+                <button class="btn back-btn">&#8592; Retour</button>
+            </div>
+        </div>
+
+        <!-- AIDE -->
+        <div id="screen-help" class="screen">
+            <div class="panel wide">
+                <h2>Comment Jouer</h2>
+                <div class="help-controls">
+                    <div class="ctrl"><kbd>&#8592; &#8594;</kbd><span>Déplacer la raquette</span></div>
+                    <div class="ctrl"><kbd>ESPACE</kbd><span>Lancer la balle / Pause</span></div>
+                    <div class="ctrl"><kbd>ESC</kbd><span>Retour au menu</span></div>
+                    <div class="ctrl"><kbd>M</kbd><span>Son on / off</span></div>
+                </div>
+                <div class="help-columns">
+                    <div>
+                        <h3>Power-ups</h3>
+                        <div class="help-powerups">
+                            <div class="pu-row"><span class="pu-badge wide">W</span>Grande raquette (10s)</div>
+                            <div class="pu-row"><span class="pu-badge narrow">N</span>Petite raquette (8s)</div>
+                            <div class="pu-row"><span class="pu-badge multi">M</span>Triple balle</div>
+                            <div class="pu-row"><span class="pu-badge fire">F</span>Balle de feu (8s)</div>
+                            <div class="pu-row"><span class="pu-badge life">&#9829;</span>Vie bonus</div>
+                            <div class="pu-row"><span class="pu-badge laser">L</span>Laser (10s)</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Briques</h3>
+                        <div class="help-bricks">
+                            <div class="bk-row"><span class="bk-dot" style="background:#e74c3c"></span>Normale (1 coup)</div>
+                            <div class="bk-row"><span class="bk-dot" style="background:#3498db"></span>Résistante (2 coups)</div>
+                            <div class="bk-row"><span class="bk-dot" style="background:#8e44ad"></span>Solide (3 coups)</div>
+                            <div class="bk-row"><span class="bk-dot" style="background:#636e72"></span>Indestructible</div>
+                            <div class="bk-row"><span class="bk-dot" style="background:#e67e22"></span>Explosive</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn back-btn">&#8592; Retour</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
+                r = r || 0;
+                var rad = Math.min(typeof r === 'number' ? r : (r[0] || 0), w / 2, h / 2);
+                this.moveTo(x + rad, y);
+                this.lineTo(x + w - rad, y);
+                this.quadraticCurveTo(x + w, y, x + w, y + rad);
+                this.lineTo(x + w, y + h - rad);
+                this.quadraticCurveTo(x + w, y + h, x + w - rad, y + h);
+                this.lineTo(x + rad, y + h);
+                this.quadraticCurveTo(x, y + h, x, y + h - rad);
+                this.lineTo(x, y + rad);
+                this.quadraticCurveTo(x, y, x + rad, y);
+                this.closePath();
+                return this;
+            };
+        }
+    </script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

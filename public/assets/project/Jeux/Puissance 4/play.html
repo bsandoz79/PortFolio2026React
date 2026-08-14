@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Puissance 4</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0d1117;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* ── Menu ── */
+#menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  animation: fadeIn .4s ease;
+}
+#menu h1 { font-size: 2.8rem; font-weight: 900; letter-spacing: -.03em; }
+#menu h1 span { color: #f9a825; }
+#menu p  { color: rgba(255,255,255,.5); font-size: .95rem; }
+.diff-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.diff-btn {
+  padding: 12px 28px; border-radius: 10px; font-size: .95rem; font-weight: 700;
+  cursor: pointer; border: 2px solid transparent; transition: all .18s;
+}
+.diff-btn.facile   { background: rgba(16,185,129,.15); color: #10b981; border-color: #10b981; }
+.diff-btn.normal   { background: rgba(99,102,241,.15); color: #818cf8; border-color: #818cf8; }
+.diff-btn.difficile{ background: rgba(239,68,68,.15);  color: #ef4444; border-color: #ef4444; }
+.diff-btn:hover    { filter: brightness(1.2); transform: translateY(-2px); }
+
+/* ── Game ── */
+#game { display: none; flex-direction: column; align-items: center; gap: 16px; animation: fadeIn .3s ease; }
+#status {
+  font-size: 1rem; font-weight: 700; min-height: 32px;
+  padding: 6px 18px; border-radius: 8px; background: rgba(255,255,255,.07);
+  letter-spacing: .02em;
+}
+#status.p1  { color: #f9a825; }
+#status.p2  { color: #ef4444; }
+#status.win { color: #10b981; }
+#status.draw{ color: rgba(255,255,255,.5); }
+
+.board-wrap { display: flex; flex-direction: column; gap: 6px; }
+
+.col-hints {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px;
+  padding: 0 4px;
+}
+.col-hint {
+  height: 22px; border-radius: 6px; cursor: pointer;
+  transition: background .15s;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .7rem; color: transparent;
+}
+.col-hint.hov { background: rgba(255,255,255,.15); color: rgba(255,255,255,.4); }
+.col-hint.hov::after { content: '▼'; }
+.col-hint.blocked { cursor: not-allowed; }
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  background: #1565c0;
+  padding: 10px;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.5), inset 0 2px 4px rgba(0,0,0,.3);
+}
+.cell {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #0d1117;
+  box-shadow: inset 0 3px 8px rgba(0,0,0,.6);
+  transition: background .12s, box-shadow .12s;
+  position: relative;
+}
+.cell.p1 { background: #f9a825; box-shadow: 0 0 10px rgba(249,168,37,.4), inset 0 -2px 4px rgba(0,0,0,.2); }
+.cell.p2 { background: #ef4444; box-shadow: 0 0 10px rgba(239,68,68,.4),  inset 0 -2px 4px rgba(0,0,0,.2); }
+.cell.win{ animation: pulse .6s ease infinite alternate; }
+.cell.drop { animation: dropIn .18s cubic-bezier(.4,0,.2,1); }
+
+@keyframes pulse   { from { filter: brightness(1); } to { filter: brightness(1.5); } }
+@keyframes dropIn  { from { transform: scaleY(.4) translateY(-10px); opacity:.6; } to { transform: none; opacity:1; } }
+@keyframes fadeIn  { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: none; } }
+
+.btns { display: flex; gap: 10px; }
+.btn {
+  padding: 9px 22px; border-radius: 8px; font-size: .875rem; font-weight: 700;
+  cursor: pointer; border: none; transition: all .15s;
+}
+.btn-restart { background: rgba(255,255,255,.1); color: white; }
+.btn-restart:hover { background: rgba(255,255,255,.2); }
+.btn-menu    { background: rgba(99,102,241,.2); color: #818cf8; border: 1px solid #818cf8; }
+.btn-menu:hover { background: rgba(99,102,241,.35); }
+
+#thinking { font-size:.8rem; color: rgba(255,255,255,.4); min-height:18px; }
+</style>
+</head>
+<body>
+
+<!-- Menu -->
+<div id="menu">
+  <h1>PUISSANCE <span>4</span></h1>
+  <p>Joue contre l'IA — choisis ta difficulté</p>
+  <div class="diff-btns">
+    <button class="diff-btn facile"    onclick="startGame(3)">Facile</button>
+    <button class="diff-btn normal"    onclick="startGame(5)">Normal</button>
+    <button class="diff-btn difficile" onclick="startGame(7)">Difficile</button>
+  </div>
+</div>
+
+<!-- Game -->
+<div id="game">
+  <div id="status">Tour du joueur 🟡</div>
+  <div class="board-wrap">
+    <div class="col-hints" id="hints"></div>
+    <div id="board"></div>
+  </div>
+  <div id="thinking"></div>
+  <div class="btns">
+    <button class="btn btn-restart" onclick="restart()">Rejouer</button>
+    <button class="btn btn-menu"    onclick="goMenu()">Menu</button>
+  </div>
+</div>
+
+<script>
+const ROWS = 6, COLS = 7;
+const HUMAN = 1, AI = 2;
+let board = [], depth = 5, over = false, busy = false;
+
+function newBoard() {
+  return Array.from({length: ROWS}, () => Array(COLS).fill(0));
+}
+
+/* ── Game logic ── */
+function drop(b, col, player) {
+  for (let r = ROWS - 1; r >= 0; r--) {
+    if (b[r][col] === 0) { b[r][col] = player; return r; }
+  }
+  return -1;
+}
+
+function playable(b, col) { return b[0][col] === 0; }
+function cols(b) { return Array.from({length: COLS}, (_, c) => c).filter(c => playable(b, c)); }
+function full(b) { return cols(b).length === 0; }
+
+function winCells(b, row, col, p) {
+  const dirs = [[0,1],[1,0],[1,1],[1,-1]];
+  for (const [dr, dc] of dirs) {
+    const cells = [{row, col}];
+    for (const s of [-1, 1]) {
+      let r = row + s*dr, c = col + s*dc;
+      while (r>=0&&r<ROWS&&c>=0&&c<COLS&&b[r][c]===p) { cells.push({row:r,col:c}); r+=s*dr; c+=s*dc; }
+    }
+    if (cells.length >= 4) return cells;
+  }
+  return null;
+}
+
+function scoreWin(b, row, col, p) { return winCells(b, row, col, p) !== null; }
+
+function scoreWindow(w, p) {
+  const o = p === 1 ? 2 : 1;
+  let pc = 0, ec = 0;
+  for (const v of w) { if (v===p) pc++; else if (v===0) ec++; }
+  const oc = 4 - pc - ec;
+  if (pc===4) return 100;
+  if (pc===3&&ec===1) return 5;
+  if (pc===2&&ec===2) return 2;
+  if (oc===3&&ec===1) return -4;
+  return 0;
+}
+
+function evalBoard(b, p) {
+  let s = 0;
+  for (let r = 0; r < ROWS; r++) if (b[r][3]===p) s += 3;
+  for (let r = 0; r < ROWS; r++)
+    for (let c = 0; c <= COLS-4; c++)
+      s += scoreWindow([b[r][c],b[r][c+1],b[r][c+2],b[r][c+3]], p);
+  for (let r = 0; r <= ROWS-4; r++)
+    for (let c = 0; c < COLS; c++)
+      s += scoreWindow([b[r][c],b[r+1][c],b[r+2][c],b[r+3][c]], p);
+  for (let r = 3; r < ROWS; r++)
+    for (let c = 0; c <= COLS-4; c++)
+      s += scoreWindow([b[r][c],b[r-1][c+1],b[r-2][c+2],b[r-3][c+3]], p);
+  for (let r = 0; r <= ROWS-4; r++)
+    for (let c = 0; c <= COLS-4; c++)
+      s += scoreWindow([b[r][c],b[r+1][c+1],b[r+2][c+2],b[r+3][c+3]], p);
+  return s;
+}
+
+function minimax(b, d, alpha, beta, isMax) {
+  const cs = cols(b);
+  if (d === 0 || cs.length === 0 || full(b)) return evalBoard(b, AI);
+  if (isMax) {
+    let mx = -Infinity;
+    for (const c of cs) {
+      const r = drop(b, c, AI);
+      if (scoreWin(b, r, c, AI)) { b[r][c]=0; return 10000+d; }
+      const sc = minimax(b, d-1, alpha, beta, false);
+      b[r][c] = 0;
+      mx = Math.max(mx, sc); alpha = Math.max(alpha, sc);
+      if (beta <= alpha) break;
+    }
+    return mx;
+  } else {
+    let mn = Infinity;
+    for (const c of cs) {
+      const r = drop(b, c, HUMAN);
+      if (scoreWin(b, r, c, HUMAN)) { b[r][c]=0; return -(10000+d); }
+      const sc = minimax(b, d-1, alpha, beta, true);
+      b[r][c] = 0;
+      mn = Math.min(mn, sc); beta = Math.min(beta, sc);
+      if (beta <= alpha) break;
+    }
+    return mn;
+  }
+}
+
+function bestCol() {
+  const cs = cols(board);
+  // Immediate win
+  for (const c of cs) {
+    const r = drop(board, c, AI);
+    const win = scoreWin(board, r, c, AI);
+    board[r][c] = 0;
+    if (win) return c;
+  }
+  // Block human win
+  for (const c of cs) {
+    const r = drop(board, c, HUMAN);
+    const win = scoreWin(board, r, c, HUMAN);
+    board[r][c] = 0;
+    if (win) return c;
+  }
+  let best = -Infinity, bestC = cs[0];
+  for (const c of cs) {
+    const r = drop(board, c, AI);
+    const sc = minimax(board, depth - 1, -Infinity, Infinity, false);
+    board[r][c] = 0;
+    if (sc > best) { best = sc; bestC = c; }
+  }
+  return bestC;
+}
+
+/* ── Rendering ── */
+function renderBoard() {
+  const el = document.getElementById('board');
+  el.innerHTML = '';
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell' + (board[r][c]===1?' p1': board[r][c]===2?' p2':'');
+      cell.dataset.r = r; cell.dataset.c = c;
+      el.appendChild(cell);
+    }
+  }
+}
+
+function renderHints() {
+  const el = document.getElementById('hints');
+  el.innerHTML = '';
+  for (let c = 0; c < COLS; c++) {
+    const h = document.createElement('div');
+    h.className = 'col-hint' + (over || busy ? ' blocked' : '');
+    if (!over && !busy) {
+      h.addEventListener('mouseenter', () => h.classList.add('hov'));
+      h.addEventListener('mouseleave', () => h.classList.remove('hov'));
+      h.addEventListener('click', () => humanPlay(c));
+    }
+    el.appendChild(h);
+  }
+}
+
+function setStatus(msg, cls) {
+  const s = document.getElementById('status');
+  s.textContent = msg;
+  s.className = cls ?? '';
+}
+
+function markWin(cells) {
+  cells.forEach(({row, col}) => {
+    const idx = row * COLS + col;
+    document.getElementById('board').children[idx].classList.add('win');
+  });
+}
+
+function markDrop(row, col) {
+  const idx = row * COLS + col;
+  const cell = document.getElementById('board').children[idx];
+  cell.classList.add('drop');
+  cell.addEventListener('animationend', () => cell.classList.remove('drop'), {once: true});
+}
+
+/* ── Game flow ── */
+function humanPlay(col) {
+  if (over || busy || !playable(board, col)) return;
+  const row = drop(board, col, HUMAN);
+  renderBoard();
+  markDrop(row, col);
+  const w = winCells(board, row, col, HUMAN);
+  if (w) { markWin(w); setStatus('🎉 Tu as gagné !', 'win'); over = true; return; }
+  if (full(board)) { setStatus('Match nul !', 'draw'); over = true; return; }
+  setStatus('L\'IA réfléchit…', 'p2');
+  busy = true;
+  renderHints();
+  document.getElementById('thinking').textContent = '⚙️ Calcul en cours…';
+  setTimeout(() => {
+    const col2 = bestCol();
+    const row2 = drop(board, col2, AI);
+    renderBoard();
+    markDrop(row2, col2);
+    document.getElementById('thinking').textContent = '';
+    const w2 = winCells(board, row2, col2, AI);
+    if (w2) { markWin(w2); setStatus('L\'IA a gagné !', 'p2'); over = true; busy = false; renderHints(); return; }
+    if (full(board)) { setStatus('Match nul !', 'draw'); over = true; busy = false; renderHints(); return; }
+    setStatus('Ton tour 🟡', 'p1');
+    busy = false;
+    renderHints();
+  }, 60);
+}
+
+function startGame(d) {
+  depth = d;
+  restart();
+  document.getElementById('menu').style.display = 'none';
+  document.getElementById('game').style.display = 'flex';
+}
+
+function restart() {
+  board = newBoard();
+  over = false; busy = false;
+  renderBoard();
+  renderHints();
+  setStatus('Ton tour 🟡', 'p1');
+  document.getElementById('thinking').textContent = '';
+}
+
+function goMenu() {
+  document.getElementById('game').style.display = 'none';
+  document.getElementById('menu').style.display = 'flex';
+}
+</script>
+</body>
+</html>
