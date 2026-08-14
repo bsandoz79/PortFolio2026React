@@ -104,23 +104,28 @@ function CodeWindow({ title, lines, side }) {
 }
 
 /* ── Floating logos ── */
-const ZONE   = 400;
 const LOGO   = 68;
 const MARGIN = 10;
-const BOUND  = ZONE - LOGO - MARGIN * 2;
 
-function randPts(n = 7) {
+function getZoneSize() {
+  if (typeof window === 'undefined') return 400;
+  if (window.innerWidth <= 480) return 280;
+  if (window.innerWidth <= 600) return 320;
+  return 400;
+}
+
+function randPts(bound, n = 7) {
   const pts = Array.from({ length: n }, () => [
-    MARGIN + Math.random() * BOUND,
-    MARGIN + Math.random() * BOUND,
+    MARGIN + Math.random() * bound,
+    MARGIN + Math.random() * bound,
   ]);
   pts.push(pts[0]);
   return pts;
 }
 
-function FloatingLogo({ tool }) {
+function FloatingLogo({ tool, bound }) {
   const controls = useAnimation();
-  const pts      = useMemo(() => randPts(7), []);
+  const pts      = useMemo(() => randPts(bound), [bound]);
   const duration = useMemo(() => 14 + Math.random() * 10, []);
   const [hovered, setHovered] = useState(false);
 
@@ -131,7 +136,7 @@ function FloatingLogo({ tool }) {
       transition: { duration, repeat: Infinity, ease: 'easeInOut' },
     });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [pts]);
 
   const handleEnter = () => {
     controls.stop();
@@ -173,9 +178,19 @@ function FloatingLogo({ tool }) {
 }
 
 function ToolsFloat() {
+  const [zone, setZone] = useState(getZoneSize);
+
+  useEffect(() => {
+    const onResize = () => setZone(getZoneSize());
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  const bound = zone - LOGO - MARGIN * 2;
+
   return (
-    <div className={styles.floatZone}>
-      {tools.map(t => <FloatingLogo key={t.name} tool={t} />)}
+    <div className={styles.floatZone} style={{ width: zone, height: zone }}>
+      {tools.map(t => <FloatingLogo key={t.name} tool={t} bound={bound} />)}
     </div>
   );
 }

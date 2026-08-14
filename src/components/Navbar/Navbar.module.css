@@ -97,6 +97,7 @@
 }
 
 @media (max-width: 768px) {
+  .nav { padding: 0 20px; }
   .burger { display: flex; }
 
   .links {
@@ -125,4 +126,9 @@
   .burger span:nth-child(1).barOpen { transform: translateY(7px) rotate(45deg); }
   .burger span:nth-child(2).barOpen { opacity: 0; }
   .burger span:nth-child(3).barOpen { transform: translateY(-7px) rotate(-45deg); }
+}
+
+@media (max-width: 480px) {
+  .nav { padding: 0 16px; }
+  .logo { font-size: 0.92rem; }
 }

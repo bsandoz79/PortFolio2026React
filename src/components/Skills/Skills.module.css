@@ -199,7 +199,6 @@
 
 @media (max-width: 600px) {
   .grid { grid-template-columns: repeat(3, 1fr); }
-  .floatZone { width: 320px; height: 320px; }
 }
 
 @media (max-width: 480px) {
@@ -208,7 +207,6 @@
   .imgWrap { width: 42px; height: 42px; }
   .name { font-size: 0.7rem; }
   .tooltip { width: 170px; font-size: 0.74rem; }
-  .floatZone { width: 280px; height: 280px; }
   .floatLogo img { width: 36px; height: 36px; }
   .floatName { font-size: 0.58rem; }
   .orbitSection { gap: 0; }
