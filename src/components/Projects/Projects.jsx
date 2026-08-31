@@ -66,6 +66,11 @@ function ShowcaseModal({ project, onClose, onPlay }) {
             <span className={styles.showcaseDate}>{project.date}</span>
           </div>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            {project.liveUrl && (
+              <a className={styles.tryBtn} href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                🔗 Voir le site
+              </a>
+            )}
             {project.gameUrl && (
               <button className={styles.tryBtn} onClick={() => { onClose(); onPlay(project); }}>
                 🎮 Essayer le jeu

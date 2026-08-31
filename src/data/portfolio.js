@@ -230,7 +230,8 @@ export const projects = [
     date: '2025 — En cours',
     img: "/assets/project/O'RDV Screens/index.png",
     tags: ['site', 'en_cours'],
-    techs: ['PHP', 'HTML', 'CSS', 'JavaScript', 'MySQL'],
+    techs: ['React', 'Node.js', 'CSS', 'MySQL'],
+    liveUrl: 'https://o-rdv.vercel.app',
     description: 'Plateforme de prise de rendez-vous en ligne : espace client pour réserver, espace professionnel pour gérer les disponibilités et le planning.',
     showcase: {
       type: 'En cours',
