@@ -114,7 +114,7 @@ export default function About() {
               </div>
               <div className={styles.altItem}>
                 <span className={styles.altLabel}>Rythme</span>
-                <span className={styles.altValue}>1 semaine école<br/><em>3 semaines en entreprise</em></span>
+                <span className={styles.altValue}>1 semaine école<br/><em>2 semaines en entreprise</em></span>
               </div>
               <div className={styles.altItem}>
                 <span className={styles.altLabel}>Durée</span>
