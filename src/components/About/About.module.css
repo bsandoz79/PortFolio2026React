@@ -279,6 +279,62 @@
 }
 .altLink:hover { opacity: 1; }
 
+/* ── Bannière entreprise d'alternance ── */
+.companyBanner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.companyBanner:hover {
+  border-color: rgba(99,102,241,.3);
+  box-shadow: var(--shadow-sm);
+}
+
+.companyLogo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: contain;
+  background: white;
+  border: 1px solid var(--border);
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.companyInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+.companyInfo strong {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.companyInfo span {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.companyCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 .altGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -480,4 +536,6 @@
   .quickInfo span { font-size: 0.78rem; }
   .cvBtns { flex-wrap: wrap; gap: 8px; }
   .cvToggleLabel { font-size: 0.82rem; }
+  .companyBanner { flex-wrap: wrap; }
+  .companyCta { margin-left: 58px; }
 }

@@ -2,14 +2,14 @@
 export const profil = {
   name: 'Baptiste Sandoz',
   title: 'Étudiant en Mastère Informatique',
-  subtitle: 'Alternance de 12 à 24 mois — dès Septembre 2026',
+  subtitle: 'En alternance chez La Brosse & Dupont — depuis Septembre 2026 (2 ans)',
   school: 'Mastère Expert DevOps · EPSI Arras',
-  bio: "Étudiant en Mastère Expert DevOps à l'EPSI Arras, titulaire d'un BTS SIO option SLAM et d'un Bachelor Informatique. Passionné par le développement web et la cybersécurité, je cherche à mettre mes compétences en pratique dans le cadre d'une alternance de 12 à 24 mois dès septembre 2026.",
+  bio: "Étudiant en Mastère Expert DevOps à l'EPSI Arras, titulaire d'un BTS SIO option SLAM et d'un Bachelor Informatique. Passionné par le développement web et la cybersécurité, je suis actuellement en alternance de 2 ans chez La Brosse & Dupont depuis septembre 2026.",
   phone: '07 69 28 78 37',
   email: 'baptiste.sandoz@proton.me',
   location: 'Amiens, France (80000)',
   linkedin: 'baptiste-sandoz',
-  dob: '07/09/2005 — 20 ans',
+  dob: '07/09/2005 — 21 ans',
   permis: 'Permis B — véhiculé',
   langs: [
     { lang: 'Français', level: 'Natif' },
@@ -17,6 +17,15 @@ export const profil = {
   ],
   interests: ['Informatique', 'Sport', 'Veille techno', 'Cybersécurité'],
   softSkills: ['Autonomie', 'Esprit d\'équipe', 'Résolution de problèmes'],
+};
+
+// ── Entreprise d'alternance ──────────────────────────────────────────────
+export const entreprise = {
+  name: 'La Brosse & Dupont',
+  logo: '/assets/lbd.png',
+  url: 'https://www.labrosseetdupont.fr',
+  since: 'Septembre 2026',
+  duration: '2 ans',
 };
 
 // ── Skills ────────────────────────────────────────────────────────────────

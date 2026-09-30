@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import MarbleRun from '../MarbleRun/MarbleRun';
-import { projects } from '../../data/portfolio';
+import { projects, entreprise } from '../../data/portfolio';
 import styles from './Hero.module.css';
 
 const TYPED_WORDS = [
   'Étudiant en Mastère Informatique',
   'Passionné de cybersécurité',
-  'En recherche d\'alternance 12–24 mois',
+  'En alternance chez La Brosse & Dupont',
   'React · PHP · Python · SQL',
 ];
 
@@ -70,7 +70,7 @@ export default function Hero() {
           transition={{ delay: 0.05 }}
         >
           <span className={styles.availDot} />
-          Disponible — Alternance Mastère · Sept. 2026
+          En alternance chez {entreprise.name} · depuis {entreprise.since}
         </motion.div>
 
         <motion.p
@@ -108,8 +108,8 @@ export default function Hero() {
           transition={{ delay: 0.62 }}
         >
           Étudiant en Mastère Expert DevOps à l'EPSI d'Arras, passionné
-          par le développement web et la cybersécurité. Je recherche une
-          alternance de 12 à 24 mois dès Septembre 2026.
+          par le développement web et la cybersécurité. Actuellement en
+          alternance chez {entreprise.name} depuis {entreprise.since}, pour {entreprise.duration}.
         </motion.p>
 
         <motion.div
@@ -193,7 +193,7 @@ export default function Hero() {
           </div>
           <div className={styles.photoInfo}>
             <strong>Baptiste Sandoz</strong>
-            <span>20 ans · Amiens, France · Permis B</span>
+            <span>21 ans · Amiens, France · Permis B</span>
             <span>baptiste.sandoz@proton.me</span>
           </div>
         </motion.div>

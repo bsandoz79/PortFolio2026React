@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { profil, competenceBadges, techBadges } from '../../data/portfolio';
+import { profil, competenceBadges, techBadges, entreprise } from '../../data/portfolio';
 import styles from './About.module.css';
 
 const fadeUp = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } };
@@ -21,7 +21,7 @@ export default function About() {
           <motion.p className="section-label" variants={fadeUp}>À propos</motion.p>
           <motion.h2 className="section-title" variants={fadeUp}>Qui suis-je ?</motion.h2>
           <motion.p className="section-sub" variants={fadeUp} style={{ marginBottom: 48 }}>
-            Étudiant en Mastère Informatique, je recherche une alternance de 12 à 24 mois dès Septembre 2026.
+            Étudiant en Mastère Informatique, en alternance chez {entreprise.name} depuis {entreprise.since}.
           </motion.p>
 
           <div className={styles.topRow}>
@@ -36,7 +36,7 @@ export default function About() {
               </div>
               <div className={styles.quickInfo}>
                 <span>📍 Amiens, France</span>
-                <span>🎂 20 ans — 07/09/2005</span>
+                <span>🎂 21 ans — 07/09/2005</span>
                 <span>🚗 Permis B — véhiculé</span>
                 <span>🌐 Anglais B1 · Français natif</span>
               </div>
@@ -85,6 +85,24 @@ export default function About() {
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
             </div>
+
+            <a
+              href={entreprise.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.companyBanner}
+            >
+              <img src={entreprise.logo} alt={entreprise.name} className={styles.companyLogo} />
+              <div className={styles.companyInfo}>
+                <strong>{entreprise.name}</strong>
+                <span>En alternance · depuis {entreprise.since} · {entreprise.duration}</span>
+              </div>
+              <span className={styles.companyCta}>
+                Découvrir l'entreprise
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </span>
+            </a>
+
             <div className={styles.altGrid}>
               <div className={styles.altItem}>
                 <span className={styles.altLabel}>Formation</span>
@@ -146,7 +164,7 @@ export default function About() {
           <motion.div className={styles.cvBlock} variants={fadeUp}>
             <div className={styles.cvInfo}>
               <h3>Mon CV</h3>
-              <p>Alternance 12 à 24 mois — dès Septembre 2026 · Mastère Informatique</p>
+              <p>En alternance chez {entreprise.name} — depuis {entreprise.since} · Mastère Informatique</p>
             </div>
             <div className={styles.cvBtns}>
               <label className={styles.cvToggleLabel}>
