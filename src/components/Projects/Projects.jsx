@@ -71,6 +71,11 @@ function ShowcaseModal({ project, onClose, onPlay }) {
                 🔗 Voir le site
               </a>
             )}
+            {project.githubUrl && (
+              <a className={styles.tryBtn} href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                💻 Voir sur GitHub
+              </a>
+            )}
             {project.gameUrl && (
               <button className={styles.tryBtn} onClick={() => { onClose(); onPlay(project); }}>
                 🎮 Essayer le jeu

@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import MarbleRun from '../MarbleRun/MarbleRun';
-import { projects, entreprise } from '../../data/portfolio';
+import { projects, experiences, alternance } from '../../data/portfolio';
 import styles from './Hero.module.css';
 
 const TYPED_WORDS = [
   'Étudiant en Mastère Informatique',
   'Passionné de cybersécurité',
-  'En alternance chez La Brosse & Dupont',
+  `Recherche une alternance ${alternance.poste}`,
   'React · PHP · Python · SQL',
 ];
 
@@ -70,7 +70,7 @@ export default function Hero() {
           transition={{ delay: 0.05 }}
         >
           <span className={styles.availDot} />
-          En alternance chez {entreprise.name} · depuis {entreprise.since}
+          Recherche une alternance {alternance.poste} · {alternance.duration} · {alternance.start.toLowerCase()}
         </motion.div>
 
         <motion.p
@@ -108,8 +108,9 @@ export default function Hero() {
           transition={{ delay: 0.62 }}
         >
           Étudiant en Mastère Expert DevOps à l'EPSI d'Arras, passionné
-          par le développement web et la cybersécurité. Actuellement en
-          alternance chez {entreprise.name} depuis {entreprise.since}, pour {entreprise.duration}.
+          par le développement web et la cybersécurité. Je recherche une
+          nouvelle alternance en tant que {alternance.poste.toLowerCase()}, de {alternance.duration},
+          disponible {alternance.start.toLowerCase()}.
         </motion.p>
 
         <motion.div
@@ -167,7 +168,7 @@ export default function Hero() {
           </div>
           <div className={styles.divider} />
           <div className={styles.stat}>
-            <strong>3</strong>
+            <strong>{experiences.length}</strong>
             <span>Expériences</span>
           </div>
           <div className={styles.divider} />

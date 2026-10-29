@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { profil, competenceBadges, techBadges, entreprise } from '../../data/portfolio';
+import { profil, competenceBadges, techBadges, alternance } from '../../data/portfolio';
 import styles from './About.module.css';
 
 const fadeUp = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } };
@@ -21,7 +21,7 @@ export default function About() {
           <motion.p className="section-label" variants={fadeUp}>À propos</motion.p>
           <motion.h2 className="section-title" variants={fadeUp}>Qui suis-je ?</motion.h2>
           <motion.p className="section-sub" variants={fadeUp} style={{ marginBottom: 48 }}>
-            Étudiant en Mastère Informatique, en alternance chez {entreprise.name} depuis {entreprise.since}.
+            Étudiant en Mastère Expert DevOps, à la recherche d'une alternance en tant que {alternance.poste.toLowerCase()}, de {alternance.duration}, {alternance.start.toLowerCase()}.
           </motion.p>
 
           <div className={styles.topRow}>
@@ -86,20 +86,15 @@ export default function About() {
               </a>
             </div>
 
-            <a
-              href={entreprise.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.companyBanner}
-            >
-              <img src={entreprise.logo} alt={entreprise.name} className={styles.companyLogo} />
+            <a href="#contact" className={styles.companyBanner}>
+              <span className={`${styles.companyLogo} ${styles.searchIcon}`}>🔎</span>
               <div className={styles.companyInfo}>
-                <strong>{entreprise.name}</strong>
-                <span>En alternance · depuis {entreprise.since} · {entreprise.duration}</span>
+                <strong>Je recherche une alternance {alternance.poste}</strong>
+                <span>{alternance.duration} · {alternance.start} · Mastère Expert DevOps</span>
               </div>
               <span className={styles.companyCta}>
-                Découvrir l'entreprise
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Me contacter
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </span>
             </a>
 
@@ -118,7 +113,7 @@ export default function About() {
               </div>
               <div className={styles.altItem}>
                 <span className={styles.altLabel}>Durée</span>
-                <span className={styles.altValue}>2 ans<br/><em>Dès Septembre / Octobre 2026</em></span>
+                <span className={styles.altValue}>{alternance.duration}<br/><em>{alternance.start}</em></span>
               </div>
               <div className={styles.altItem}>
                 <span className={styles.altLabel}>École</span>
@@ -164,7 +159,7 @@ export default function About() {
           <motion.div className={styles.cvBlock} variants={fadeUp}>
             <div className={styles.cvInfo}>
               <h3>Mon CV</h3>
-              <p>En alternance chez {entreprise.name} — depuis {entreprise.since} · Mastère Informatique</p>
+              <p>Recherche une alternance {alternance.poste} de {alternance.duration} — {alternance.start.toLowerCase()} · Mastère Expert DevOps</p>
             </div>
             <div className={styles.cvBtns}>
               <label className={styles.cvToggleLabel}>
@@ -179,7 +174,7 @@ export default function About() {
                 Afficher le CV
               </label>
               <a
-                href="/assets/CV/CV Baptiste SANDOZ - EPSI Mastère Data & IA(1).PDF"
+                href="/assets/CV/CV_Baptiste_SANDOZ_-_EPSI_Mastere_Expert_DevOps.pdf"
                 target="_blank"
                 rel="noopener"
                 className={styles.btnView}
@@ -188,7 +183,7 @@ export default function About() {
                 Visualiser
               </a>
               <a
-                href="/assets/CV/CV Baptiste SANDOZ - EPSI Mastère Data & IA(1).PDF"
+                href="/assets/CV/CV_Baptiste_SANDOZ_-_EPSI_Mastere_Expert_DevOps.pdf"
                 download
                 className={styles.btnDl}
               >
@@ -201,7 +196,7 @@ export default function About() {
           {showCV && (
             <div style={{ margin: '32px auto', maxWidth: 900, boxShadow: '0 2px 16px rgba(0,0,0,0.10)', borderRadius: 12, overflow: 'hidden', background: 'white' }}>
               <iframe
-                src="/assets/CV/CV Baptiste SANDOZ - EPSI Mastère Data & IA(1).PDF"
+                src="/assets/CV/CV_Baptiste_SANDOZ_-_EPSI_Mastere_Expert_DevOps.pdf"
                 title="CV Baptiste Sandoz"
                 width="100%"
                 height="700px"

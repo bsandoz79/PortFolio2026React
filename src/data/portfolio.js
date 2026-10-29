@@ -2,9 +2,9 @@
 export const profil = {
   name: 'Baptiste Sandoz',
   title: 'Étudiant en Mastère Informatique',
-  subtitle: 'En alternance chez La Brosse & Dupont — depuis Septembre 2026 (2 ans)',
+  subtitle: 'Recherche une alternance Développeur Full Stack de 12 à 24 mois — dès que possible',
   school: 'Mastère Expert DevOps · EPSI Arras',
-  bio: "Étudiant en Mastère Expert DevOps à l'EPSI Arras, titulaire d'un BTS SIO option SLAM et d'un Bachelor Informatique. Passionné par le développement web et la cybersécurité, je suis actuellement en alternance de 2 ans chez La Brosse & Dupont depuis septembre 2026.",
+  bio: "Étudiant en Mastère Expert DevOps à l'EPSI Arras, titulaire d'un BTS SIO option SLAM et d'un Bachelor Informatique. Passionné par le développement web et la cybersécurité, je recherche une nouvelle alternance en tant que développeur full stack, de 12 à 24 mois, disponible dès que possible.",
   phone: '07 69 28 78 37',
   email: 'baptiste.sandoz@proton.me',
   location: 'Amiens, France (80000)',
@@ -19,13 +19,11 @@ export const profil = {
   softSkills: ['Autonomie', 'Esprit d\'équipe', 'Résolution de problèmes'],
 };
 
-// ── Entreprise d'alternance ──────────────────────────────────────────────
-export const entreprise = {
-  name: 'La Brosse & Dupont',
-  logo: '/assets/lbd.png',
-  url: 'https://www.labrosseetdupont.fr',
-  since: 'Septembre 2026',
-  duration: '2 ans',
+// ── Recherche d'alternance ───────────────────────────────────────────────
+export const alternance = {
+  poste: 'Développeur Full Stack',
+  duration: '12 à 24 mois',
+  start: 'Dès que possible',
 };
 
 // ── Skills ────────────────────────────────────────────────────────────────
@@ -43,7 +41,7 @@ export const skills = [
 ];
 
 export const techBadges = [
-  'PHP', 'JS / React / Node.js', 'HTML5 / CSS3',
+  'PHP / Symfony', 'JS / React / Node.js', 'HTML5 / CSS3',
   'SQL · MySQL / PostgreSQL', 'Python',
   'Git / GitHub', 'Docker', 'Linux (CLI)',
   'API REST', 'WordPress',
@@ -399,6 +397,40 @@ export const projects = [
       screenshotLabels: ['Accueil', 'Services', 'Galerie', 'Zone d\'intervention', 'Horaires', 'Contact'],
     },
   },
+  {
+    id: 14,
+    title: 'Alterno',
+    date: 'Oct 2026 — En cours',
+    img: '/assets/project/Alterno/cover.jpg',
+    tags: ['mobile', 'perso', 'en_cours'],
+    techs: ['React Native', 'Expo', 'TypeScript', 'SQLite', 'Vitest', 'GitHub Actions'],
+    githubUrl: 'https://github.com/bsandoz79/Alterno',
+    description: 'Application Android (et web) qui planifie les horaires variables d\'un alternant : simulation de semaines, compteur d\'heures, récupérations et semaines d\'école.',
+    showcase: {
+      type: 'Projet perso',
+      typeColor: 'green',
+      context: 'En alternance avec des horaires variables, je devais calculer moi-même chaque jour mon heure de départ pour tenir mon objectif d\'heures, gagner une journée de récup ou rattraper un compteur négatif, tout en tenant compte des semaines d\'école. J\'ai créé Alterno pour automatiser ces calculs.',
+      goal: 'Proposer un plan d\'horaires réaliste sur une ou plusieurs semaines, le recalculer dès qu\'on s\'en écarte et suivre le solde d\'heures, le tout en local et sans tracker (RGPD dès la V1).',
+      features: [
+        'Accueil : heure de départ prévue et temps restant à la minute près',
+        'Simulation sur 1 à 4 semaines : objectif d\'heures ou journée de récup, rythmes rapide / régulier / au plus juste',
+        'Recalcul automatique quand on arrive plus tard, part plus tôt ou prend une pause plus longue',
+        'Planning façon emploi du temps (vue semaine et mois), semaines d\'école exclues des simulations',
+        'Compteur d\'heures, historique mensuel et rappels de départ par notification Android',
+        'Page « Mes données » : export et effacement complet (RGPD)',
+      ],
+      learned: 'Monorepo avec un moteur métier en TypeScript pur développé en TDD (architecture en couches, SOLID), séparé de l\'app React Native / Expo. Workflow pro : un ticket = une branche = une pull request validée par la CI GitHub Actions (lint, typecheck, tests, contrôle d\'architecture), décisions documentées en ADR, et déploiement de l\'APK et des mises à jour via EAS Build / EAS Update.',
+      screenshots: [
+        '/assets/project/Alterno/cover.jpg',
+        '/assets/project/Alterno/accueil.jpg',
+        '/assets/project/Alterno/simulation.jpg',
+        '/assets/project/Alterno/semaine.jpg',
+        '/assets/project/Alterno/compteur.jpg',
+        '/assets/project/Alterno/ecole.jpg',
+      ],
+      screenshotLabels: ['Présentation', 'Aujourd\'hui', 'Simulation', 'Planning', 'Compteur', 'Semaines d\'école'],
+    },
+  },
 ];
 
 export const filters = [
@@ -416,6 +448,17 @@ export const filters = [
 
 // ── Experiences ───────────────────────────────────────────────────────────
 export const experiences = [
+  {
+    period: 'Sept 2026 → Oct 2026',
+    title: 'Développeur Full Stack — Alternance',
+    company: 'La Brosse & Dupont — Hermes (60)',
+    tags: ['React', 'Symfony', 'SQL', 'Plane', 'Git'],
+    bullets: [
+      'Développement de fonctionnalités React sur un back-end Symfony',
+      'Reportings SQL (procédures stockées) et écrans de paramétrage',
+      'Tickets sous Plane, Git par branches feature et revue de code',
+    ],
+  },
   {
     period: 'Nov 2024 → Déc 2024',
     title: 'Stagiaire Développeur & Réseau',
