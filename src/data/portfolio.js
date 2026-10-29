@@ -234,15 +234,15 @@ export const projects = [
   {
     id: 8,
     title: "O'RDV",
-    date: '2025 — En cours',
+    date: '2025 — Oct 2026',
     img: "/assets/project/O'RDV Screens/index.png",
-    tags: ['site', 'en_cours'],
+    tags: ['site'],
     techs: ['React', 'Node.js', 'CSS', 'MySQL'],
     liveUrl: 'https://o-rdv.vercel.app',
     description: 'Plateforme de prise de rendez-vous en ligne : espace client pour réserver, espace professionnel pour gérer les disponibilités et le planning.',
     showcase: {
-      type: 'En cours',
-      typeColor: 'orange',
+      type: 'Bachelor',
+      typeColor: 'accent',
       context: 'Projet développé dans le cadre du Bachelor à l\'école iT. Inspiré de plateformes comme Doctolib, l\'objectif est de créer une solution généraliste de prise de rendez-vous adaptable à n\'importe quel type de professionnel (médecin, coiffeur, coach, etc.).',
       goal: 'Permettre aux professionnels de gérer leurs disponibilités et créneaux, et à leurs clients de rechercher un prestataire et de réserver en ligne facilement.',
       features: [
@@ -400,9 +400,9 @@ export const projects = [
   {
     id: 14,
     title: 'Alterno',
-    date: 'Oct 2026 — En cours',
+    date: 'Oct 2026',
     img: '/assets/project/Alterno/cover.jpg',
-    tags: ['mobile', 'perso', 'en_cours'],
+    tags: ['mobile', 'perso'],
     techs: ['React Native', 'Expo', 'TypeScript', 'SQLite', 'Vitest', 'GitHub Actions'],
     githubUrl: 'https://github.com/bsandoz79/Alterno',
     description: 'Application Android (et web) qui planifie les horaires variables d\'un alternant : simulation de semaines, compteur d\'heures, récupérations et semaines d\'école.',
@@ -441,7 +441,6 @@ export const filters = [
   { key: 'mobile',   label: 'Application Mobile' },
   { key: 'csharp',   label: 'Application C#' },
   { key: 'perso',    label: 'Perso' },
-  { key: 'en_cours', label: 'En cours' },
   { key: 'stage',    label: 'Stage' },
   { key: 'autre',    label: 'Autre' },
 ];
