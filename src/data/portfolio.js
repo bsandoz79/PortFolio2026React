@@ -4,7 +4,7 @@ export const profil = {
   title: 'Étudiant en Mastère Informatique',
   subtitle: 'Recherche une alternance Développeur Full Stack de 12 à 24 mois — dès que possible',
   school: 'Mastère Expert DevOps · EPSI Arras',
-  bio: "Étudiant en Mastère Expert DevOps à l'EPSI Arras, titulaire d'un BTS SIO option SLAM et d'un Bachelor Informatique. Passionné par le développement web et la cybersécurité, je recherche une nouvelle alternance en tant que développeur full stack, de 12 à 24 mois, disponible dès que possible.",
+  bio: "Étudiant en Mastère Expert DevOps à l'EPSI Arras, titulaire d'un BTS SIO option SLAM, d'un Bachelor Informatique et du titre RNCP Concepteur Développeur d'Applications (Bac+3). Passionné par le développement web et la cybersécurité, je recherche une nouvelle alternance en tant que développeur full stack, de 12 à 24 mois, disponible dès que possible.",
   phone: '07 69 28 78 37',
   email: 'baptiste.sandoz@proton.me',
   location: 'Amiens, France (80000)',
@@ -503,9 +503,9 @@ export const education = [
   },
   {
     period: '2025 → 2026',
-    title: 'Bachelor Informatique',
+    title: 'Bachelor Informatique — Titre CDA',
     school: 'école iT — Amiens',
-    tags: ['Diplôme obtenu'],
+    tags: ['Diplôme obtenu', 'RNCP Bac+3'],
   },
   {
     period: '2023 → 2025',
