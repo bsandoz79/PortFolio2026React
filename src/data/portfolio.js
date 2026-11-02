@@ -515,7 +515,7 @@ export const education = [
   },
   {
     period: '2020 → 2023',
-    title: 'Bac Général — Spécialité Informatique',
+    title: 'Bac Général — Spécialités Maths & NSI',
     school: 'Lycée Boucher de Perthes — Abbeville',
     tags: ['Diplôme obtenu'],
   },
@@ -524,6 +524,34 @@ export const education = [
     title: 'Brevet des collèges',
     school: 'Collège Ponthieu — Abbeville',
     tags: ['Mention Bien'],
+  },
+];
+
+// ── Diplômes ──────────────────────────────────────────────────────────────
+export const diplomes = [
+  {
+    title: 'Titre pro Concepteur Développeur d\'Applications',
+    date: '20 octobre 2026',
+    desc: 'Titre professionnel RNCP de niveau 6 (Bac+3) — Ministère du Travail.',
+    files: ['/assets/Diplome/Titre pro CDA.pdf'],
+  },
+  {
+    title: 'BTS SIO — Option SLAM',
+    date: 'Session 2025',
+    desc: 'Services Informatiques aux Organisations, option Solutions Logicielles et Applications Métiers. Niveau 5 (Bac+2).',
+    files: ['/assets/Diplome/BTS SIO.pdf'],
+  },
+  {
+    title: 'Baccalauréat Général',
+    date: 'Session 2023',
+    desc: 'Spécialités Mathématiques et Numérique et Sciences Informatiques.',
+    files: ['/assets/Diplome/Baccalaureat.pdf'],
+  },
+  {
+    title: 'Diplôme National du Brevet',
+    date: 'Juillet 2020',
+    desc: 'Série générale, mention Bien.',
+    files: ['/assets/Diplome/Brevet.pdf'],
   },
 ];
 

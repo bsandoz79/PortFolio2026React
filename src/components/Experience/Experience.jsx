@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as pdfjsLib from 'pdfjs-dist';
-import { experiences, education, certifications } from '../../data/portfolio';
+import { experiences, education, diplomes, certifications } from '../../data/portfolio';
 import styles from './Experience.module.css';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
@@ -255,6 +255,16 @@ export default function Experience() {
               <div className={styles.timeline}>
                 {education.map((e) => <EduItem key={e.title} item={e} />)}
               </div>
+
+              <h3 className={styles.colTitle} style={{ marginTop: 36 }}><span>📜</span> Diplômes</h3>
+              <motion.div
+                className={styles.certGrid}
+                variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+              >
+                {diplomes.map((d) => (
+                  <CertCard key={d.title} cert={d} onOpen={setActiveCert} />
+                ))}
+              </motion.div>
 
               <h3 className={styles.colTitle} style={{ marginTop: 36 }}><span>🏅</span> Certifications</h3>
               <motion.div
