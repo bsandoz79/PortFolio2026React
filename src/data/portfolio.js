@@ -506,52 +506,28 @@ export const education = [
     title: 'Bachelor Informatique — Titre CDA',
     school: 'école iT — Amiens',
     tags: ['Diplôme obtenu', 'RNCP Bac+3'],
+    diplome: { title: 'Titre pro Concepteur Développeur d\'Applications', date: '20 octobre 2026', files: ['/assets/Diplome/Titre pro CDA.pdf'] },
   },
   {
     period: '2023 → 2025',
     title: 'BTS SIO — Option SLAM',
     school: 'Lycée Edouard Gand — Amiens',
     tags: ['Diplôme obtenu', 'Développement'],
+    diplome: { title: 'BTS SIO — Option SLAM', date: 'Session 2025', files: ['/assets/Diplome/BTS SIO.pdf'] },
   },
   {
     period: '2020 → 2023',
     title: 'Bac Général — Spécialités Maths & NSI',
     school: 'Lycée Boucher de Perthes — Abbeville',
     tags: ['Diplôme obtenu'],
+    diplome: { title: 'Baccalauréat Général', date: 'Session 2023', files: ['/assets/Diplome/Baccalaureat.pdf'] },
   },
   {
     period: '2016 → 2020',
     title: 'Brevet des collèges',
     school: 'Collège Ponthieu — Abbeville',
     tags: ['Mention Bien'],
-  },
-];
-
-// ── Diplômes ──────────────────────────────────────────────────────────────
-export const diplomes = [
-  {
-    title: 'Titre pro Concepteur Développeur d\'Applications',
-    date: '20 octobre 2026',
-    desc: 'Titre professionnel RNCP de niveau 6 (Bac+3) — Ministère du Travail.',
-    files: ['/assets/Diplome/Titre pro CDA.pdf'],
-  },
-  {
-    title: 'BTS SIO — Option SLAM',
-    date: 'Session 2025',
-    desc: 'Services Informatiques aux Organisations, option Solutions Logicielles et Applications Métiers. Niveau 5 (Bac+2).',
-    files: ['/assets/Diplome/BTS SIO.pdf'],
-  },
-  {
-    title: 'Baccalauréat Général',
-    date: 'Session 2023',
-    desc: 'Spécialités Mathématiques et Numérique et Sciences Informatiques.',
-    files: ['/assets/Diplome/Baccalaureat.pdf'],
-  },
-  {
-    title: 'Diplôme National du Brevet',
-    date: 'Juillet 2020',
-    desc: 'Série générale, mention Bien.',
-    files: ['/assets/Diplome/Brevet.pdf'],
+    diplome: { title: 'Diplôme National du Brevet', date: 'Juillet 2020', files: ['/assets/Diplome/Brevet.pdf'] },
   },
 ];
 

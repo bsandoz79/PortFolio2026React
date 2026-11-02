@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as pdfjsLib from 'pdfjs-dist';
-import { experiences, education, diplomes, certifications } from '../../data/portfolio';
+import { experiences, education, certifications } from '../../data/portfolio';
 import styles from './Experience.module.css';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
@@ -71,7 +71,7 @@ function ExpItem({ item }) {
   );
 }
 
-function EduItem({ item }) {
+function EduItem({ item, onOpenDiplome }) {
   return (
     <motion.div className={styles.item} variants={fadeUp}>
       <div className={`${styles.dot} ${item.highlight ? styles.dotAccent : ''}`} />
@@ -82,6 +82,17 @@ function EduItem({ item }) {
         <div className={styles.tags}>
           {(item.tags || []).map((t) => <span key={t} className={styles.tag}>{t}</span>)}
         </div>
+        {item.diplome && (
+          <button className={styles.diplomeBtn} onClick={() => onOpenDiplome(item.diplome)}>
+            <span className={styles.diplomeThumb}>
+              <PdfThumb src={item.diplome.files[0]} />
+            </span>
+            <span className={styles.diplomeLabel}>
+              <strong>📜 Voir le diplôme</strong>
+              <span>{item.diplome.date}</span>
+            </span>
+          </button>
+        )}
       </div>
     </motion.div>
   );
@@ -253,18 +264,8 @@ export default function Experience() {
             <div className={styles.col}>
               <h3 className={styles.colTitle}><span>🎓</span> Parcours scolaire</h3>
               <div className={styles.timeline}>
-                {education.map((e) => <EduItem key={e.title} item={e} />)}
+                {education.map((e) => <EduItem key={e.title} item={e} onOpenDiplome={setActiveCert} />)}
               </div>
-
-              <h3 className={styles.colTitle} style={{ marginTop: 36 }}><span>📜</span> Diplômes</h3>
-              <motion.div
-                className={styles.certGrid}
-                variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-              >
-                {diplomes.map((d) => (
-                  <CertCard key={d.title} cert={d} onOpen={setActiveCert} />
-                ))}
-              </motion.div>
 
               <h3 className={styles.colTitle} style={{ marginTop: 36 }}><span>🏅</span> Certifications</h3>
               <motion.div

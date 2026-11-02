@@ -177,6 +177,52 @@
   transition: opacity 0.3s;
 }
 
+/* ── Diplôme rattaché à une formation ── */
+.diplomeBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 12px;
+  padding: 8px;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.diplomeBtn:hover {
+  border-color: rgba(99,102,241,.35);
+  box-shadow: 0 4px 14px rgba(99,102,241,.1);
+}
+.diplomeThumb {
+  position: relative;
+  width: 64px;
+  height: 46px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: white;
+  border: 1px solid var(--border);
+}
+.diplomeThumb .pdfCanvas { width: 64px; }
+.diplomeLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.diplomeLabel strong {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.diplomeLabel span {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
 .pdfShimmer {
   position: absolute;
   inset: 0;
