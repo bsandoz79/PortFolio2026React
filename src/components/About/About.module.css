@@ -103,7 +103,7 @@
 
 .topRow {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 240px minmax(0, 1fr);
   gap: 40px;
   margin-bottom: 40px;
   align-items: start;
@@ -147,6 +147,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  min-width: 0;
 }
 
 .profileLabel {
@@ -524,18 +525,18 @@
   .cvBlock { flex-direction: column; align-items: flex-start; }
   .cvBtns { width: 100%; }
   .btnView, .btnDl { flex: 1; justify-content: center; }
-  .topRow { grid-template-columns: 180px 1fr; gap: 24px; }
+  .topRow { grid-template-columns: 180px minmax(0, 1fr); gap: 24px; }
   .photoFrame { width: 160px; height: 190px; }
 }
 
 @media (max-width: 768px) {
-  .altGrid { grid-template-columns: repeat(2, 1fr); }
+  .altGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .altBlock { padding: 18px 20px; }
 }
 
 @media (max-width: 540px) {
-  .altGrid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .topRow { grid-template-columns: 1fr; gap: 20px; }
+  .altGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .topRow { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .photoCol { flex-direction: row; align-items: center; gap: 16px; }
   .photoFrame { width: 100px; height: 120px; flex-shrink: 0; }
   .quickInfo { gap: 4px; }
@@ -543,5 +544,9 @@
   .cvBtns { flex-wrap: wrap; gap: 8px; }
   .cvToggleLabel { font-size: 0.82rem; }
   .companyBanner { flex-wrap: wrap; }
+  .companyInfo { flex-basis: calc(100% - 58px); }
   .companyCta { margin-left: 58px; }
 }
+
+.salaryRow strong { white-space: nowrap; }
+.altValue { overflow-wrap: anywhere; }

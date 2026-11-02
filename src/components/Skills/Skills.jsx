@@ -177,16 +177,33 @@ function FloatingLogo({ tool, bound }) {
   );
 }
 
+const isSmallScreen = () => typeof window !== 'undefined' && window.innerWidth <= 600;
+
 function ToolsFloat() {
   const [zone, setZone] = useState(getZoneSize);
+  const [small, setSmall] = useState(isSmallScreen);
 
   useEffect(() => {
-    const onResize = () => setZone(getZoneSize());
+    const onResize = () => { setZone(getZoneSize()); setSmall(isSmallScreen()); };
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
   const bound = zone - LOGO - MARGIN * 2;
+
+  // Sur téléphone, les logos flottants se chevauchent : grille fixe à la place
+  if (small) {
+    return (
+      <div className={styles.toolsGrid}>
+        {tools.map(t => (
+          <div key={t.name} className={styles.toolItem}>
+            <img src={t.img} alt={t.name} />
+            <span>{t.name}</span>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className={styles.floatZone} style={{ width: zone, height: zone }}>
