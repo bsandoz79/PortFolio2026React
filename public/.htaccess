@@ -2,6 +2,10 @@
 Options -Indexes
 DirectoryIndex index.html
 
+# Worker pdf.js (.mjs) : sans type JavaScript, le navigateur refuse de le charger
+AddType text/javascript .mjs
+AddType image/webp .webp
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
@@ -23,7 +27,7 @@ DirectoryIndex index.html
 
 # Cache : assets versionnés par Vite = 1 an, index.html = toujours revalidé
 <IfModule mod_headers.c>
-  <FilesMatch "\.(js|css|woff2?)$">
+  <FilesMatch "\.(m?js|css|woff2?)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
   <FilesMatch "\.(png|jpe?g|webp|svg|ico|pdf)$">
