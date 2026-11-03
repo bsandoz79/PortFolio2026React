@@ -69,7 +69,7 @@ function ContactForm() {
         <span className={styles.formSentIcon}>✓</span>
         <div>
           <strong>Message envoyé !</strong>
-          <p>Merci, je vous réponds sous 24h.</p>
+          <p>Merci, je vous réponds sous 24h. Un e-mail de confirmation vient de vous être envoyé.</p>
         </div>
         <button className={styles.btnCopy} onClick={() => setStatus('idle')}>Nouveau message</button>
       </div>
@@ -101,6 +101,9 @@ function ContactForm() {
         Site web <input name="website" value={form.website} onChange={update} tabIndex={-1} autoComplete="off" />
       </label>
       <div className={styles.formFooter}>
+        <p className={styles.formLegal}>
+          Vos données servent uniquement à vous répondre. <a href="/mentions-legales">En savoir plus</a>
+        </p>
         {status === 'error' && <p className={styles.formError} role="alert">{error}</p>}
         <button type="submit" className={styles.btnMail} disabled={status === 'sending'}>
           {status === 'sending' ? 'Envoi…' : 'Envoyer le message'}

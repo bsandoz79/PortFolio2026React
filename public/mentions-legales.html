@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentions légales & données personnelles — Baptiste Sandoz</title>
+  <meta name="description" content="Mentions légales, hébergeur et politique de confidentialité (RGPD) du portfolio de Baptiste Sandoz.">
+  <link rel="canonical" href="https://portfolio.bsandoz.fr/mentions-legales">
+  <link rel="icon" type="image/x-icon" href="/assets/PDP_ICO_PortFolio_React_2026.ico">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #6366f1;
+      --accent-glow: rgba(99,102,241,.1);
+      --text: #1a1d27;
+      --text-muted: #6b7280;
+      --border: #e2e6ee;
+      --surface: #ffffff;
+      --bg: #f8f9fb;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 48px 24px 80px;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    .header {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      margin-bottom: 24px;
+      transition: opacity .15s;
+    }
+    .back-link:hover { opacity: .7; }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-glow);
+      border: 1px solid rgba(99,102,241,.2);
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .meta span::before { content: '· '; }
+    .meta span:first-child::before { content: ''; }
+
+    /* ── Intro card ── */
+    .intro {
+      background: var(--accent-glow);
+      border: 1px solid rgba(99,102,241,.18);
+      border-radius: 12px;
+      padding: 18px 22px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      line-height: 1.75;
+    }
+
+    /* ── Sections ── */
+    .section {
+      margin-bottom: 36px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    p + p { margin-top: 10px; }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    ul li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.7;
+    }
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .footer a:hover { text-decoration: underline; }
+
+    .info {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      gap: 6px 16px;
+      margin-top: 10px;
+      font-size: 0.88rem;
+    }
+    .info dt { color: var(--text); font-weight: 600; }
+    .info dd { color: var(--text-muted); overflow-wrap: anywhere; }
+    a { color: var(--accent); }
+    strong { color: var(--text); }
+
+    @media (max-width: 600px) {
+      .info { grid-template-columns: minmax(0, 1fr); gap: 0; }
+      .info dd { margin-bottom: 8px; }
+      body { padding: 32px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <a class="back-link" href="/">
+        ← Retour au portfolio
+      </a>
+      <div class="badge">Informations légales</div>
+      <h1>Mentions légales &amp; données personnelles</h1>
+      <div class="meta">
+        <span>portfolio.bsandoz.fr</span>
+        <span>Dernière mise à jour : 4 novembre 2026</span>
+        <span>Loi française applicable</span>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <div class="intro">
+      Ce site est le portfolio personnel de <strong>Baptiste Sandoz</strong>, développeur full stack en Mastère Expert DevOps à l'EPSI Arras. Il présente ses compétences, projets, expériences et formations. Cette page réunit les mentions légales (loi n° 2004-575 du 21 juin 2004, dite LCEN) et la politique de confidentialité (Règlement général sur la protection des données, RGPD).
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">1</span>
+        <h2>Éditeur du site</h2>
+      </div>
+      <dl class="info">
+        <dt>Éditeur</dt><dd>Baptiste Sandoz, particulier</dd>
+        <dt>Localisation</dt><dd>Amiens (80), France</dd>
+        <dt>Contact</dt><dd><a href="mailto:contact@bsandoz.fr">contact@bsandoz.fr</a></dd>
+        <dt>Directeur de la publication</dt><dd>Baptiste Sandoz</dd>
+      </dl>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">2</span>
+        <h2>Hébergement</h2>
+      </div>
+      <dl class="info">
+        <dt>Hébergeur</dt><dd>o2switch SAS</dd>
+        <dt>Adresse</dt><dd>222-224 Boulevard Gustave Flaubert, 63000 Clermont-Ferrand, France</dd>
+        <dt>Téléphone</dt><dd>04 44 44 60 40</dd>
+        <dt>Site</dt><dd><a href="https://www.o2switch.fr" target="_blank" rel="noopener noreferrer">www.o2switch.fr</a></dd>
+      </dl>
+      <p style="margin-top:10px;">Les serveurs sont situés en France.</p>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">3</span>
+        <h2>Propriété intellectuelle</h2>
+      </div>
+      <p>L'ensemble des contenus présents sur ce site — textes, code source, design, images, projets présentés — sont la propriété exclusive de Baptiste Sandoz, sauf mention contraire explicite.</p>
+      <ul>
+        <li>Toute reproduction partielle ou totale sans autorisation écrite est interdite.</li>
+        <li>Les logos et marques de technologies tierces (React, PHP, etc.) appartiennent à leurs propriétaires respectifs.</li>
+        <li>Les projets présentés sont des réalisations personnelles ou pédagogiques : leur code source peut être accessible sur GitHub à titre de démonstration.</li>
+      </ul>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">4</span>
+        <h2>Données personnelles</h2>
+      </div>
+      <p><strong>Responsable du traitement :</strong> Baptiste Sandoz — <a href="mailto:contact@bsandoz.fr">contact@bsandoz.fr</a>.</p>
+      <p><strong>Formulaire de contact.</strong> Lorsque vous m'écrivez via le formulaire, les données suivantes sont collectées : nom, adresse e-mail, sujet (facultatif) et message.</p>
+      <ul>
+        <li><strong>Finalité :</strong> répondre à votre demande (opportunité d'alternance, projet, question) et vous envoyer un accusé de réception automatique.</li>
+        <li><strong>Base légale :</strong> l'intérêt légitime à répondre aux personnes qui me contactent (article 6.1.f du RGPD), ou les mesures précontractuelles prises à votre demande (article 6.1.b).</li>
+        <li><strong>Destinataire :</strong> moi seul. Les messages transitent par l'hébergeur o2switch (France) puis sont réceptionnés dans ma messagerie Proton (Suisse, pays reconnu comme offrant un niveau de protection adéquat par la Commission européenne). Ils ne sont ni vendus, ni cédés, ni utilisés à des fins publicitaires.</li>
+        <li><strong>Durée de conservation :</strong> le temps de notre échange, puis au maximum 3 ans après notre dernier contact.</li>
+      </ul>
+      <p><strong>Protection contre les abus.</strong> Pour limiter les envois automatisés, une empreinte non réversible de votre adresse IP (hachage) est conservée au maximum une heure sur le serveur. L'hébergeur conserve par ailleurs des journaux de connexion techniques, conformément à ses obligations légales.</p>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">5</span>
+        <h2>Cookies et stockage local</h2>
+      </div>
+      <p>Ce site n'utilise <strong>aucun cookie</strong>, ni outil de mesure d'audience, ni traceur publicitaire. Aucun bandeau de consentement n'est donc nécessaire.</p>
+      <ul>
+        <li>Votre préférence de thème (clair / sombre) et les meilleurs scores des jeux sont enregistrés dans le stockage local de votre navigateur. Ces informations ne quittent jamais votre appareil et vous pouvez les effacer depuis les réglages de votre navigateur.</li>
+        <li>Les polices de caractères sont chargées depuis le service Google Fonts : votre navigateur contacte alors les serveurs de Google, qui reçoivent votre adresse IP.</li>
+      </ul>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">6</span>
+        <h2>Vos droits</h2>
+      </div>
+      <p>Conformément au RGPD et à la loi « Informatique et Libertés », vous disposez d'un droit d'accès, de rectification, d'effacement, d'opposition, de limitation et de portabilité de vos données.</p>
+      <p>Pour les exercer, écrivez à <a href="mailto:contact@bsandoz.fr">contact@bsandoz.fr</a> : je vous réponds dans un délai d'un mois au plus. Si vous estimez que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>).</p>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">7</span>
+        <h2>Jeux et contenus interactifs</h2>
+      </div>
+      <p>Ce portfolio intègre des jeux développés à titre personnel (Casse-Briques, Morpion, Snake, Puissance 4). Ces jeux sont fournis uniquement à des fins de démonstration technique.</p>
+      <ul>
+        <li>Ils ne transmettent aucune donnée : les scores restent dans votre navigateur.</li>
+        <li>Ils peuvent être interrompus ou retirés à tout moment sans préavis.</li>
+      </ul>
+    </div>
+
+    <!-- Section 8 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">8</span>
+        <h2>Responsabilité</h2>
+      </div>
+      <p>Baptiste Sandoz s'efforce de maintenir les informations de ce site à jour et exactes, sans pouvoir garantir leur exhaustivité.</p>
+      <ul>
+        <li>Le site est fourni « en l'état », sans garantie d'aucune sorte.</li>
+        <li>Les liens vers des sites tiers (démonstrations, GitHub, LinkedIn…) sont fournis à titre informatif : leur contenu ne relève pas de la responsabilité de ce portfolio.</li>
+      </ul>
+    </div>
+
+    <!-- Section 9 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">9</span>
+        <h2>Loi applicable &amp; modifications</h2>
+      </div>
+      <p>Les présentes mentions sont régies par le droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux du ressort d'Amiens (France) seront compétents.</p>
+      <p>Cette page peut être mise à jour à tout moment pour refléter les évolutions du site ou des obligations légales ; la date de dernière mise à jour figure en en-tête.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>© 2026 Baptiste Sandoz — Tous droits réservés</p>
+      <a href="/">← Retour au portfolio</a>
+    </div>
+
+  </div>
+</body>
+</html>

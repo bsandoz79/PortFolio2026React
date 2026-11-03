@@ -18,8 +18,8 @@ export default function Footer() {
           </a>
         </div>
 
-        <a href="/terms-and-conditions.html" target="_blank" rel="noopener noreferrer" className={styles.terms}>
-          Conditions d'utilisation
+        <a href="/mentions-legales" className={styles.terms}>
+          Mentions légales &amp; confidentialité
         </a>
       </div>
     </footer>

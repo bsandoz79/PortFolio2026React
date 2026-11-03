@@ -14,7 +14,10 @@ AddType image/webp .webp
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # URL sans .html (ex. /terms-and-conditions)
+  # Ancienne page CGU → mentions légales
+  RewriteRule ^terms-and-conditions(\.html)?/?$ /mentions-legales [R=301,L]
+
+  # URL sans .html (ex. /mentions-legales)
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.+?)/?$ $1.html [L]

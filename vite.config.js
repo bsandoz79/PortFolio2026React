@@ -4,7 +4,7 @@ import { orderedProjects } from './src/data/portfolio.js'
 
 const SITE_URL = 'https://portfolio.bsandoz.fr'
 
-// Génère sitemap.xml au build : accueil, une entrée par page projet, CGU
+// Génère sitemap.xml au build : accueil, une entrée par page projet, mentions légales
 function sitemap() {
   return {
     name: 'sitemap',
@@ -16,7 +16,7 @@ function sitemap() {
       const urls = [
         url('/', '1.0', 'monthly'),
         ...orderedProjects.map((p) => url(`/projets/${p.slug}`, p.featured ? '0.9' : '0.7', 'monthly')),
-        url('/terms-and-conditions', '0.3', 'yearly'),
+        url('/mentions-legales', '0.3', 'yearly'),
       ]
       this.emitFile({
         type: 'asset',

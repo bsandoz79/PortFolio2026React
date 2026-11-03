@@ -231,6 +231,12 @@ a.infoValue:hover { color: var(--accent); }
   flex-wrap: wrap;
 }
 .formFooter .btnMail:disabled { opacity: 0.6; cursor: wait; transform: none; }
+.formLegal {
+  flex: 1 1 260px;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+.formLegal a { color: var(--accent); font-weight: 600; }
 .formError {
   flex: 1;
   font-size: 0.85rem;
