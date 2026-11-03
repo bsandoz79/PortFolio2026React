@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portfolio-sandoz-baptiste.vercel.app/sitemap.xml
+Sitemap: https://portfolio.bsandoz.fr/sitemap.xml
