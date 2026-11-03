@@ -1,5 +1,6 @@
 {
   "redirects": [
+    { "source": "/", "destination": "https://portfolio.bsandoz.fr/", "permanent": true },
     { "source": "/:path*", "destination": "https://portfolio.bsandoz.fr/:path*", "permanent": true }
   ]
 }
