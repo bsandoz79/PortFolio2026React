@@ -16,7 +16,7 @@ const WALL_LOGOS = [
   { src: '/assets/skills/html.png',       name: 'HTML',       top: '22%', left: '6%'  },
   { src: '/assets/skills/css.png',        name: 'CSS',        top: '56%', left: '8%'  },
   { src: '/assets/skills/javascript.png', name: 'JavaScript', top: '40%', left: '80%' },
-  { src: '/assets/skills/php.png',        name: 'PHP',        top: '73%', left: '72%' },
+  { src: '/assets/skills/php.webp',        name: 'PHP',        top: '73%', left: '72%' },
   { src: '/assets/skills/python.jpg',     name: 'Python',     top: '88%', left: '18%' },
 ];
 

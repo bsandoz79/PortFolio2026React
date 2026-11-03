@@ -4,7 +4,8 @@ import styles from './Contact.module.css';
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
-const EMAIL = 'baptiste.sandoz@proton.me';
+const EMAIL = 'contact@bsandoz.fr';
+const CONTACT_ENDPOINT = '/api/contact.php';
 
 const INFO_CARDS = [
   {
@@ -32,6 +33,82 @@ const INFO_CARDS = [
     href: 'https://www.linkedin.com/in/baptiste-sandoz',
   },
 ];
+
+const EMPTY_FORM = { name: '', email: '', subject: '', message: '', website: '' };
+
+function ContactForm() {
+  const [form, setForm]     = useState(EMPTY_FORM);
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+  const [error, setError]   = useState('');
+
+  const update = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+    setError('');
+    try {
+      const res  = await fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) throw new Error(data.error || "L'envoi a échoué.");
+      setStatus('sent');
+      setForm(EMPTY_FORM);
+    } catch (err) {
+      setStatus('error');
+      setError(err.message === 'Failed to fetch' ? "Impossible de joindre le serveur." : err.message);
+    }
+  };
+
+  if (status === 'sent') {
+    return (
+      <div className={styles.formSent} role="status">
+        <span className={styles.formSentIcon}>✓</span>
+        <div>
+          <strong>Message envoyé !</strong>
+          <p>Merci, je vous réponds sous 24h.</p>
+        </div>
+        <button className={styles.btnCopy} onClick={() => setStatus('idle')}>Nouveau message</button>
+      </div>
+    );
+  }
+
+  return (
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <div className={styles.formRow}>
+        <label className={styles.field}>
+          <span>Nom *</span>
+          <input name="name" value={form.name} onChange={update} required maxLength={100} autoComplete="name" />
+        </label>
+        <label className={styles.field}>
+          <span>E-mail *</span>
+          <input type="email" name="email" value={form.email} onChange={update} required maxLength={150} autoComplete="email" />
+        </label>
+      </div>
+      <label className={styles.field}>
+        <span>Sujet</span>
+        <input name="subject" value={form.subject} onChange={update} maxLength={150} placeholder="Alternance, projet, question…" />
+      </label>
+      <label className={styles.field}>
+        <span>Message *</span>
+        <textarea name="message" value={form.message} onChange={update} required minLength={10} maxLength={5000} rows={6} />
+      </label>
+      {/* Pot de miel anti-spam : invisible pour les humains */}
+      <label className={styles.honeypot} aria-hidden="true">
+        Site web <input name="website" value={form.website} onChange={update} tabIndex={-1} autoComplete="off" />
+      </label>
+      <div className={styles.formFooter}>
+        {status === 'error' && <p className={styles.formError} role="alert">{error}</p>}
+        <button type="submit" className={styles.btnMail} disabled={status === 'sending'}>
+          {status === 'sending' ? 'Envoi…' : 'Envoyer le message'}
+        </button>
+      </div>
+    </form>
+  );
+}
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -91,6 +168,12 @@ export default function Contact() {
                 Écrire un email
               </a>
             </div>
+          </motion.div>
+
+          {/* ── Formulaire ── */}
+          <motion.div className={styles.formCard} variants={fadeUp}>
+            <h3 className={styles.formTitle}>Envoyer un message</h3>
+            <ContactForm />
           </motion.div>
 
           {/* ── Cartes infos ── */}

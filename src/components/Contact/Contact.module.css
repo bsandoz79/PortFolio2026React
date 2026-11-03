@@ -159,12 +159,114 @@
 a.infoValue { transition: color 0.2s; }
 a.infoValue:hover { color: var(--accent); }
 
+/* ── Formulaire ── */
+.formCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px 32px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.formTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.field span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 0.92rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 11px 13px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field textarea { resize: vertical; min-height: 130px; }
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.formFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.formFooter .btnMail:disabled { opacity: 0.6; cursor: wait; transform: none; }
+.formError {
+  flex: 1;
+  font-size: 0.85rem;
+  color: #dc2626;
+}
+.formSent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.formSent div { flex: 1; min-width: 180px; }
+.formSent strong { color: var(--text); }
+.formSent p { font-size: 0.88rem; color: var(--text-muted); margin-top: 2px; }
+.formSentIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(16,185,129,.12);
+  color: #059669;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .infoGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 680px) {
+  .formCard { padding: 20px; }
+  .formRow { grid-template-columns: minmax(0, 1fr); }
+  .formFooter .btnMail { width: 100%; justify-content: center; }
   .emailCard { flex-direction: column; align-items: flex-start; padding: 24px; gap: 20px; }
   .emailCardActions { flex-direction: row; width: 100%; }
   .btnCopy, .btnMail { flex: 1; justify-content: center; }

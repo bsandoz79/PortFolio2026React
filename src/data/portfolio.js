@@ -28,7 +28,7 @@ export const alternance = {
 
 // ── Skills ────────────────────────────────────────────────────────────────
 export const skills = [
-  { name: 'PHP', img: '/assets/skills/php.png', desc: 'Développement back-end, architecture MVC, API RESTful, gestion de bases de données.' },
+  { name: 'PHP', img: '/assets/skills/php.webp', desc: 'Développement back-end, architecture MVC, API RESTful, gestion de bases de données.' },
   { name: 'JavaScript', img: '/assets/skills/javascript.png', desc: 'Scripting front-end interactif, ES6+, manipulation DOM, fetch API.' },
   { name: 'React', img: '/assets/skills/react.png', desc: 'Bibliothèque JS pour créer des SPA modernes et des interfaces utilisateur réactives.' },
   { name: 'HTML', img: '/assets/skills/html.png', desc: 'Langage de balisage sémantique pour structurer les pages web.' },
@@ -61,10 +61,10 @@ export const tools = [
   { name: 'Photoshop',       img: '/assets/outils/photoshop.png', desc: 'Retouche photo, création de maquettes UI et conception d\'assets graphiques.' },
   { name: 'EduPython',       img: '/assets/outils/edupython.jpg', desc: 'Environnement Python pédagogique utilisé en BTS SIO pour l\'algorithmie.' },
   { name: 'Template Jinja',  img: '/assets/outils/Jinja.png',     desc: 'Moteur de templates Python intégré à Flask pour générer des vues HTML dynamiques.' },
-  { name: 'Blender',         img: '/assets/outils/blender.png',   desc: 'Modélisation 3D, sculpting et animation pour des projets créatifs personnels.' },
+  { name: 'Blender',         img: '/assets/outils/blender.webp',   desc: 'Modélisation 3D, sculpting et animation pour des projets créatifs personnels.' },
   { name: 'Figma',           img: '/assets/outils/figma.png',     desc: 'Conception de maquettes UI/UX, prototypage interactif et design de composants.' },
   { name: 'Trello',          img: '/assets/outils/trello.png',    desc: 'Gestion de projets en méthode Kanban, suivi des tâches et organisation en équipe.' },
-  { name: 'Pack Office',     img: '/assets/outils/office.png',    desc: 'Word, Excel, PowerPoint — rédaction de rapports, tableaux et présentations professionnelles.' },
+  { name: 'Pack Office',     img: '/assets/outils/office.webp',    desc: 'Word, Excel, PowerPoint — rédaction de rapports, tableaux et présentations professionnelles.' },
 ];
 
 // ── Projects ──────────────────────────────────────────────────────────────
@@ -73,7 +73,7 @@ export const projects = [
     id: 1,
     title: 'Devisse Poster',
     date: 'Mai – Juin 2024',
-    img: '/assets/project/DP/DP.png',
+    img: '/assets/project/DP/DP.webp',
     tags: ['site', 'stage'],
     techs: ['PHP', 'HTML', 'CSS', 'JavaScript', 'SEO'],
     description: 'Site e-commerce de vente de posters : du cahier des charges à la mise en ligne, avec panier, paiement sécurisé et optimisation SEO.',
@@ -91,12 +91,12 @@ export const projects = [
       ],
       learned: 'Mise en pratique de PHP en contexte réel, gestion d\'un client, respect d\'un cahier des charges, et première expérience avec le SEO. J\'ai appris à livrer un projet fonctionnel dans les délais imposés.',
       screenshots: [
-        '/assets/project/DP/DP.png',
+        '/assets/project/DP/DP.webp',
         '/assets/project/DP/cardDP.png',
-        '/assets/project/DP/detailDP.png',
+        '/assets/project/DP/detailDP.webp',
         '/assets/project/DP/filtreDP.png',
         '/assets/project/DP/payDP.png',
-        '/assets/project/DP/adminDP.png',
+        '/assets/project/DP/adminDP.webp',
         '/assets/project/DP/contactDP.png',
       ],
       screenshotLabels: ['Accueil', 'Catalogue', 'Détail produit', 'Filtres', 'Paiement', 'Administration', 'Contact'],
@@ -106,7 +106,7 @@ export const projects = [
     id: 2,
     title: 'Interface Proxmox',
     date: 'Nov – Déc 2024',
-    img: '/assets/project/noimage.png',
+    img: '/assets/project/noimage.webp',
     tags: ['site', 'stage'],
     techs: ['Python', 'Flask', 'Proxmox', 'HTML', 'CSS'],
     description: 'Interface web en Python pour administrer des serveurs Proxmox, déployer des VHD Windows/Linux et gérer l\'infrastructure virtuelle de l\'UFR des Sciences.',
@@ -130,7 +130,7 @@ export const projects = [
     id: 4,
     title: 'France Mobilier',
     date: '2025',
-    img: '/assets/project/FranceMobilier.png',
+    img: '/assets/project/FranceMobilier.webp',
     tags: ['site', 'sio'],
     techs: ['PHP', 'HTML', 'CSS', 'JavaScript', 'MVC', 'MySQL'],
     description: 'Site e-commerce de vente de meubles développé en architecture MVC avec PHP et MySQL.',
@@ -147,7 +147,7 @@ export const projects = [
         'Routeur HTTP custom pour les URLs propres',
       ],
       learned: 'Compréhension profonde du patron MVC, séparation des responsabilités, et organisation du code en couches. Ce projet m\'a donné les bases pour comprendre les frameworks PHP comme Laravel.',
-      screenshots: ['/assets/project/FranceMobilier.png'],
+      screenshots: ['/assets/project/FranceMobilier.webp'],
     },
   },
   {
@@ -178,7 +178,7 @@ export const projects = [
     id: 6,
     title: 'Sio Shop',
     date: '2025',
-    img: '/assets/project/Sioshop.png',
+    img: '/assets/project/Sioshop.webp',
     tags: ['csharp', 'sio'],
     techs: ['C#', 'WinForms', 'SQL'],
     description: 'Application desktop de gestion de boutique en C# Windows Forms avec base de données SQL.',
@@ -195,7 +195,7 @@ export const projects = [
         'Rapports et export des données',
       ],
       learned: 'Développement desktop avec Windows Forms, connexion et manipulation de base de données SQL en C#, et conception d\'interfaces utilisateur pour des applications métier.',
-      screenshots: ['/assets/project/Sioshop.png'],
+      screenshots: ['/assets/project/Sioshop.webp'],
     },
   },
   {
@@ -223,10 +223,10 @@ export const projects = [
       learned: 'Premier projet développé pour répondre à un besoin réel et quotidien d\'un proche. J\'ai approfondi PHP orienté objet, la génération de PDF avec FPDF, et j\'ai appris à penser en termes d\'UX pour un utilisateur non-technique. Ce projet m\'a montré l\'impact concret que peut avoir le développement.',
       screenshots: [
         '/assets/project/gestion-nounou-screens/index.png',
-        '/assets/project/gestion-nounou-screens/connexion.png',
-        '/assets/project/gestion-nounou-screens/Gestion.png',
-        '/assets/project/gestion-nounou-screens/Ajout Enfant.png',
-        '/assets/project/gestion-nounou-screens/Ajout Enfant 2.png',
+        '/assets/project/gestion-nounou-screens/connexion.webp',
+        '/assets/project/gestion-nounou-screens/Gestion.webp',
+        '/assets/project/gestion-nounou-screens/Ajout Enfant.webp',
+        '/assets/project/gestion-nounou-screens/Ajout Enfant 2.webp',
       ],
       screenshotLabels: ['Accueil', 'Connexion', 'Gestion', 'Ajout enfant', 'Ajout enfant (suite)'],
     },
@@ -235,12 +235,15 @@ export const projects = [
     id: 8,
     title: "O'RDV",
     date: '2025 — Oct 2026',
-    img: "/assets/project/O'RDV Screens/index.png",
+    img: "/assets/project/O'RDV Screens/index.webp",
     tags: ['site'],
-    techs: ['React', 'Node.js', 'CSS', 'MySQL'],
+    featured: true,
+    techs: ['React', 'React Router', 'Tailwind CSS', 'Node.js', 'MySQL', 'JWT'],
     liveUrl: 'https://o-rdv.vercel.app',
     description: 'Plateforme de prise de rendez-vous en ligne : espace client pour réserver, espace professionnel pour gérer les disponibilités et le planning.',
     showcase: {
+      problem: 'Beaucoup de professionnels (médecins, coiffeurs, coachs…) gèrent encore leurs rendez-vous par téléphone ou avec des outils pensés pour un seul métier : créneaux en double, oublis, et aucun moyen simple pour le client de voir les disponibilités.',
+      solution: 'Une plateforme généraliste en deux espaces : le professionnel publie ses disponibilités et gère son planning, le client recherche un prestataire et réserve un créneau libre en quelques clics. Front React, API Node.js, authentification JWT et données sensibles chiffrées en base.',
       type: 'Bachelor',
       typeColor: 'accent',
       context: 'Projet développé dans le cadre du Bachelor à l\'école iT. Inspiré de plateformes comme Doctolib, l\'objectif est de créer une solution généraliste de prise de rendez-vous adaptable à n\'importe quel type de professionnel (médecin, coiffeur, coach, etc.).',
@@ -251,14 +254,16 @@ export const projects = [
         'Prise de rendez-vous avec sélection de créneaux disponibles',
         'Espace professionnel : gestion du planning et des réservations',
         'Système de réservation en temps réel',
-        'Interface responsive et moderne',
+        'Authentification JWT par rôle (client, professionnel, admin)',
+        'Données personnelles chiffrées en base',
+        'Interface responsive (Tailwind CSS)',
       ],
       learned: 'Architecture multi-rôles (client / professionnel), gestion de créneaux horaires et conflits de réservation, conception d\'une UX adaptée à deux types d\'utilisateurs différents sur la même plateforme.',
       screenshots: [
-        "/assets/project/O'RDV Screens/index.png",
+        "/assets/project/O'RDV Screens/index.webp",
         "/assets/project/O'RDV Screens/Connexion.png",
         "/assets/project/O'RDV Screens/Inscription.png",
-        "/assets/project/O'RDV Screens/Prendre rendez vous.png",
+        "/assets/project/O'RDV Screens/Prendre rendez vous.webp",
         "/assets/project/O'RDV Screens/Réserver.png",
         "/assets/project/O'RDV Screens/Espace Pro.png",
       ],
@@ -369,7 +374,7 @@ export const projects = [
     id: 13,
     title: 'Christophe Poix Moto',
     date: '2026',
-    img: '/assets/project/Christophe Poix Moto/page aceuille.png',
+    img: '/assets/project/Christophe Poix Moto/page aceuille.webp',
     tags: ['site', 'perso'],
     techs: ['Next.js', 'React', 'Leaflet', 'CSS'],
     description: 'Site vitrine pour un mécanicien moto qui intervient à domicile : services, zone d\'intervention et prise de contact.',
@@ -387,10 +392,10 @@ export const projects = [
       ],
       learned: 'Première prise en main de Next.js pour un site vitrine complet, structuration en pages et composants, et intégration d\'une carte interactive avec Leaflet. Travail sur une UI sombre orientée conversion (appel direct, demande de devis).',
       screenshots: [
-        '/assets/project/Christophe Poix Moto/page aceuille.png',
+        '/assets/project/Christophe Poix Moto/page aceuille.webp',
         '/assets/project/Christophe Poix Moto/Service.png',
-        '/assets/project/Christophe Poix Moto/Galerie.png',
-        "/assets/project/Christophe Poix Moto/Zone d'intervention.png",
+        '/assets/project/Christophe Poix Moto/Galerie.webp',
+        "/assets/project/Christophe Poix Moto/Zone d'intervention.webp",
         '/assets/project/Christophe Poix Moto/Horraire.png',
         '/assets/project/Christophe Poix Moto/contact.png',
       ],
@@ -431,6 +436,20 @@ export const projects = [
       screenshotLabels: ['Présentation', 'Aujourd\'hui', 'Simulation', 'Planning', 'Compteur', 'Semaines d\'école'],
     },
   },
+];
+
+// Slug d'URL : /projets/<slug> (ex. "O'RDV" → "ordv")
+const slugify = (str) => str
+  .normalize('NFD').replace(/[̀-ͯ]/g, '')
+  .toLowerCase().replace(/['’]/g, '')
+  .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+projects.forEach((p) => { p.slug ??= slugify(p.title); });
+
+// Ordre d'affichage : projets mis en avant, puis du plus récent au plus ancien
+export const orderedProjects = [
+  ...projects.filter((p) => p.featured),
+  ...projects.filter((p) => !p.featured).reverse(),
 ];
 
 export const filters = [
@@ -614,7 +633,7 @@ export const marbleLogos = [
   { name: 'HTML',       src: '/assets/skills/html.png' },
   { name: 'CSS',        src: '/assets/skills/css.png' },
   { name: 'JavaScript', src: '/assets/skills/javascript.png' },
-  { name: 'PHP',        src: '/assets/skills/php.png' },
+  { name: 'PHP',        src: '/assets/skills/php.webp' },
   { name: 'C#',         src: '/assets/skills/c.jpg' },
   { name: 'Python',     src: '/assets/skills/python.jpg' },
   { name: 'C++',        src: '/assets/skills/c2.jpg' },

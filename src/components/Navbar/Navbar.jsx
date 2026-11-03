@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
 const LINKS = [
@@ -14,6 +15,9 @@ export default function Navbar({ isDark, onThemeToggle }) {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('#hero');
   const [menuOpen, setMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const onHome = pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -36,12 +40,14 @@ export default function Navbar({ isDark, onThemeToggle }) {
       if (el) observer.observe(el);
     });
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   const handleClick = (e, href) => {
     e.preventDefault();
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
     setMenuOpen(false);
+    // Depuis une page projet : retour à l'accueil, la section est atteinte via le hash
+    if (!onHome) { navigate(`/${href}`); return; }
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -58,8 +64,8 @@ export default function Navbar({ isDark, onThemeToggle }) {
           {LINKS.map(({ href, label }) => (
             <li key={href}>
               <a
-                href={href}
-                className={active === href ? styles.activeLink : ''}
+                href={`/${href}`}
+                className={onHome && active === href ? styles.activeLink : ''}
                 onClick={(e) => handleClick(e, href)}
               >
                 {label}
