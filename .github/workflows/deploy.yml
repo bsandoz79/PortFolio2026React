@@ -50,5 +50,6 @@ jobs:
             set net:reconnect-interval-base 5;
             set net:timeout 30;
             open --env-password -u \"$FTP_USERNAME\" \"$FTP_SERVER\";
+            echo '--- Dossier distant :'; pwd; cls -1;
             mirror --reverse --verbose --parallel=4 dist/ ./
           "
