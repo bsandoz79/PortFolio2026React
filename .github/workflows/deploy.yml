@@ -1,4 +1,4 @@
-# Build du portfolio puis envoi sur o2switch (portfolio.bsandoz.fr) en FTPS.
+# Build du portfolio puis envoi sur o2switch (portfolio.bsandoz.fr) en FTPS avec lftp.
 # Secrets à créer dans GitHub → Settings → Secrets and variables → Actions :
 #   FTP_SERVER   : nom du serveur o2switch (colonne de droite de cPanel, ex. xxxx.o2switch.net)
 #   FTP_USERNAME : compte FTP limité au dossier portfolio.bsandoz.fr (ex. deploy@bsandoz.fr)
@@ -29,11 +29,20 @@ jobs:
       - run: npm run build
 
       - name: Envoi FTPS vers o2switch
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          local-dir: ./dist/
-          server-dir: ./
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          sudo apt-get install -y -qq lftp > /dev/null
+          lftp -c "
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate true;
+            set ftp:passive-mode true;
+            set net:max-retries 5;
+            set net:reconnect-interval-base 5;
+            set net:timeout 30;
+            open --env-password -u \"$FTP_USERNAME\" \"$FTP_SERVER\";
+            mirror --reverse --verbose --parallel=4 dist/ ./
+          "
