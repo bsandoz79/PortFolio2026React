@@ -1,8 +1,9 @@
 # Build du portfolio puis envoi sur o2switch (portfolio.bsandoz.fr) en FTPS avec lftp.
 # Secrets à créer dans GitHub → Settings → Secrets and variables → Actions :
-#   FTP_SERVER   : nom du serveur o2switch (colonne de droite de cPanel, ex. xxxx.o2switch.net)
 #   FTP_USERNAME : compte FTP limité au dossier portfolio.bsandoz.fr (ex. deploy@bsandoz.fr)
 #   FTP_PASSWORD : mot de passe de ce compte FTP
+# Le serveur FTP o2switch présente un certificat pour muguet.o2switch.net sans sa chaîne
+# intermédiaire : on la récupère chez Let's Encrypt pour garder la vérification TLS active.
 name: Déploiement o2switch
 
 on:
@@ -30,15 +31,20 @@ jobs:
 
       - name: Envoi FTPS vers o2switch
         env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_SERVER: muguet.o2switch.net
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
           sudo apt-get install -y -qq lftp > /dev/null
+          # Chaîne Let's Encrypt (YR1 → Root YR → ISRG Root X1) ajoutée aux autorités du système
+          curl -fsS http://yr1.i.lencr.org/ | openssl x509 -inform der > /tmp/yr1.pem
+          curl -fsS http://yr.i.lencr.org/  | openssl x509 -inform der > /tmp/yr.pem
+          cat /etc/ssl/certs/ca-certificates.crt /tmp/yr1.pem /tmp/yr.pem > /tmp/ca-bundle.pem
           lftp -c "
             set ftp:ssl-force true;
             set ftp:ssl-protect-data true;
             set ssl:verify-certificate true;
+            set ssl:ca-file /tmp/ca-bundle.pem;
             set ftp:passive-mode true;
             set net:max-retries 5;
             set net:reconnect-interval-base 5;
