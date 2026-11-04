@@ -1,0 +1,2 @@
+# Script appelé directement par le serveur mail : fin de ligne Unix obligatoire (shebang)
+public/api/mail-pipe.php text eol=lf

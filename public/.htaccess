@@ -2,6 +2,11 @@
 Options -Indexes
 DirectoryIndex index.html
 
+# Scripts e-mail internes : jamais servis par le web
+<FilesMatch "^(_mail|mail-pipe)\.php$">
+  Require all denied
+</FilesMatch>
+
 # Worker pdf.js (.mjs) : sans type JavaScript, le navigateur refuse de le charger
 AddType text/javascript .mjs
 AddType image/webp .webp
