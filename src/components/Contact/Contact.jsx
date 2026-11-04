@@ -6,6 +6,7 @@ const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
 const EMAIL = 'contact@bsandoz.fr';
 const CONTACT_ENDPOINT = '/api/contact.php';
+const SEND_TIMEOUT_MS  = 20000;
 
 const INFO_CARDS = [
   {
@@ -52,14 +53,17 @@ function ContactForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
+        signal: AbortSignal.timeout(SEND_TIMEOUT_MS),
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data.ok) throw new Error(data.error || "L'envoi a échoué.");
+      if (!res.ok || !data.ok) throw new Error(data.error || `L'envoi a échoué. Écrivez-moi directement à ${EMAIL}.`);
       setStatus('sent');
       setForm(EMPTY_FORM);
     } catch (err) {
       setStatus('error');
-      setError(err.message === 'Failed to fetch' ? "Impossible de joindre le serveur." : err.message);
+      if (err.name === 'TimeoutError') setError(`Le serveur ne répond pas. Réessayez plus tard ou écrivez-moi à ${EMAIL}.`);
+      else if (err.message === 'Failed to fetch') setError(`Impossible de joindre le serveur. Écrivez-moi à ${EMAIL}.`);
+      else setError(err.message);
     }
   };
 
