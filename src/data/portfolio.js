@@ -694,6 +694,12 @@ export const certifications = [
     ],
     labels: ['Module 1', 'Module 2', 'Module 3', 'Module 4', 'Module 5'],
   },
+  {
+    title: 'EBIOS Risk Manager — MOOC',
+    date: 'Novembre 2026',
+    desc: 'Introduction à la méthode EBIOS Risk Manager d’analyse des risques cyber (Club EBIOS).',
+    files: ['/assets/certifications/ebios-risk-manager.pdf'],
+  },
 ];
 
 // ── Veille ────────────────────────────────────────────────────────────────
