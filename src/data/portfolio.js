@@ -696,8 +696,8 @@ export const certifications = [
   },
   {
     title: 'EBIOS Risk Manager — MOOC',
-    date: 'Novembre 2026',
-    desc: 'Introduction à la méthode EBIOS Risk Manager d’analyse des risques cyber (Club EBIOS).',
+    date: '19 novembre 2026',
+    desc: 'Certificat de réalisation du Club EBIOS (ANSSI) : introduction à la méthode EBIOS Risk Manager d’analyse des risques cyber, 3 heures.',
     files: ['/assets/certifications/ebios-risk-manager.pdf'],
   },
 ];
